@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .wop-section {
+    background: #132b1e;
+    padding: 80px 40px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .wop-label {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #6abf8a;
+    margin-bottom: 16px;
+  }
+
+  .wop-heading {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(32px, 5vw, 58px);
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+    line-height: 1.15;
+    margin-bottom: 22px;
+  }
+
+  .wop-intro {
+    font-size: 18px;
+    color: rgba(255,255,255,0.75);
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 20px;
+    line-height: 1.75;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .wop-intro strong {
+    color: #6abf8a;
+    font-style: italic;
+  }
+
+  .wop-badge {
+    display: inline-block;
+    background: rgba(106,191,138,0.12);
+    border: 1px solid rgba(106,191,138,0.3);
+    border-radius: 50px;
+    padding: 10px 24px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+    text-align: center;
+    margin: 0 auto 52px;
+    display: table;
+  }
+
+  .wop-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .wop-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(106,191,138,0.2);
+    border-radius: 12px;
+    padding: 22px 24px;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+  }
+
+  /* Shimmer line at top */
+  .wop-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #6abf8a, transparent);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+  }
+
+  /* Glow sweep */
+  .wop-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(106,191,138,0.08) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .wop-card:hover {
+    transform: translateY(-4px);
+    background: rgba(106,191,138,0.07);
+    border-color: rgba(106,191,138,0.5);
+    box-shadow: 0 12px 36px rgba(0,0,0,0.35), 0 0 0 1px rgba(106,191,138,0.15);
+  }
+
+  .wop-card:hover::before { transform: scaleX(1); }
+  .wop-card:hover::after { opacity: 1; }
+
+  .wop-card.highlighted {
+    background: rgba(106,191,138,0.1);
+    border-color: #6abf8a;
+    box-shadow: 0 0 0 1px rgba(106,191,138,0.3), 0 8px 30px rgba(106,191,138,0.15);
+  }
+
+  .wop-card.highlighted::before {
+    transform: scaleX(1);
+  }
+
+  .wop-week-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #6abf8a;
+    margin-bottom: 6px;
+    transition: color 0.3s;
+  }
+
+  .wop-card:hover .wop-week-label {
+    color: #8dd4a8;
+  }
+
+  .wop-week-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.35;
+  }
+
+  .wop-card.highlighted .wop-week-title {
+    color: #ffffff;
+  }
+
+  .you-are-here {
+    display: inline-block;
+    background: #6abf8a;
+    color: #0d1f14;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 50px;
+    margin-top: 8px;
+  }
+
+  @media (max-width: 768px) {
+    .wop-grid { grid-template-columns: repeat(2, 1fr); }
+    .wop-section { padding: 60px 20px; }
+  }
+
+  @media (max-width: 480px) {
+    .wop-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<section class="wop-section">
+
+  <p class="wop-label">The Full Program</p>
+  <h2 class="wop-heading">Path to Purpose — 17-Week Program</h2>
+
+  <p class="wop-intro">
+    This is a standalone bonus training.<br>
+    Below you will find the full 17-week <strong>Path to Purpose</strong> program that goes deeper into everything covered here.
+  </p>
+
+  <div class="wop-badge">
+    You received this as a bonus gift — the full 17-week program is below
+  </div>
+
+  <div class="wop-grid">
+
+    <div class="wop-card">
+      <p class="wop-week-label">Week 01</p>
+      <p class="wop-week-title">Becoming Intentional</p>
+    </div>
+
+    <div class="wop-card">
+      <p class="wop-week-label">Week 02</p>
+      <p class="wop-week-title">Becoming Aware</p>
+    </div>
+
+    <div class="wop-card">
+      <p class="wop-week-label">Week 03</p>
+      <p class="wop-week-title">Turning Purpose into Profits</p>
+    </div>
+
+    <div class="wop-card">
+      <p class="wop-week-label">Week 04</p>
+      <p class="wop-week-title">Creating A Vision For The Future</p>
+    </div>
+
+    <div class="wop-card">
+      <p class="wop-week-label">Week 05</p>
+      <p class="wop-week-title">Expanding Your Belief System</p>
+    </div>
+
+    <div class="wop-card">
+      <p class="wop-week-label">Week 06</p>
+      <p class="wop-week-title">Process of Human Thoughts</p>
+    </div>
+
+    <div class="wop-card">
+      <p class="wop-week-label">Week 07</p>
+      <p class="wop-week-title">Process of Human Thoughts Part 2</p>
+    </div>
+
+    <div class="wop-card">
+      <p class="wop-week-label">Week 08</p>
+      <p class="wop-week-title">Importance of Forgiveness</p>
+    </div>
+
+    <div class="wop-card">
+      <p class="wop-week-label">Week 09</p>
+      <p class="wop-week-title">Secrets of the Universe</p>
+    </div>
+
+    <div class="wop-card">
+      <p class="wop-week-label">Week 10</p>
+      <p class="wop-week-title">Understanding the Secrets of the Universe</p>
+    </div>
+
+    <div class="wop-card">
+      <p class="wop-week-label">Week 11</p>
+      <p class="wop-week-title">The Power of the Word</p>
+    </div>
+
+    <div class="wop-card">
+      <p class="wop-week-label">Week 12</p>
+      <p class="wop-week-title">Self Vs. I</p>
+    </div>
+
+    <div class="wop-card">
+      <p class="wop-week-label">Week 13</p>
+      <p class="wop-week-title">I Am God</p>
+    </div>
+
+    <div class="wop-card">
+      <p class="wop-week-label">Week 14</p>
+      <p class="wop-week-title">How To Market</p>
+    </div>
+
+    <div class="wop-card">
+      <p class="wop-week-label">Week 15</p>
+      <p class="wop-week-title">3 Step Spiritual Creation Process</p>
+    </div>
+
+    <div class="wop-card">
+      <p class="wop-week-label">Week 16</p>
+      <p class="wop-week-title">The Art of Sales</p>
+    </div>
+
+    <div class="wop-card">
+      <p class="wop-week-label">Week 17</p>
+      <p class="wop-week-title">Creating the Freedom Number</p>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>
