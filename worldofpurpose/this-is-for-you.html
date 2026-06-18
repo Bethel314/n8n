@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet"/>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .tify-section {
+    background: #0f2318;
+    padding: 80px 24px;
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+  }
+
+  .tify-heading {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 700;
+    font-style: italic;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 52px;
+    line-height: 1.15;
+  }
+
+  .tify-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 1060px;
+    margin: 0 auto;
+    align-items: start;
+  }
+
+  /* ── LEFT CARD (IS FOR YOU) ── */
+  .card-yes {
+    background: #1b4232;
+    border-radius: 16px;
+    padding: 36px 32px 40px;
+  }
+
+  .card-yes-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .yes-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 26px;
+  }
+  .yes-item:last-child { margin-bottom: 0; }
+
+  .yes-icon {
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    margin-top: 1px;
+  }
+
+  .yes-text {
+    font-size: 17px;
+    color: rgba(255,255,255,0.88);
+    line-height: 1.6;
+  }
+  .yes-text strong {
+    color: #ffffff;
+    font-weight: 700;
+  }
+
+  /* ── RIGHT CARD (NOT FOR YOU) ── */
+  .card-no {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 36px 32px 40px;
+  }
+
+  .card-no-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: #0f1f14;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .no-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 26px;
+  }
+  .no-item:last-child { margin-bottom: 0; }
+
+  .no-icon {
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    margin-top: 1px;
+  }
+
+  .no-text {
+    font-size: 17px;
+    color: #2d2d2d;
+    line-height: 1.6;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    .tify-grid {
+      grid-template-columns: 1fr;
+    }
+    .tify-section { padding: 56px 16px; }
+    .card-yes, .card-no { padding: 28px 20px 32px; }
+    .yes-text, .no-text { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<section class="tify-section">
+
+  <h2 class="tify-heading">This Is For You If…</h2>
+
+  <div class="tify-grid">
+
+    <!-- LEFT — IS FOR YOU -->
+    <div class="card-yes">
+      <p class="card-yes-title">Is For You</p>
+
+      <div class="yes-item">
+        <svg class="yes-icon" viewBox="0 0 26 26" fill="none">
+          <circle cx="13" cy="13" r="13" fill="#3a9e60"/>
+          <path d="M7 13.5L11 17.5L19 9" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <p class="yes-text"><strong>You feel called to something bigger</strong> — but every time you try to name it, the words fall short and the feeling fades</p>
+      </div>
+
+      <div class="yes-item">
+        <svg class="yes-icon" viewBox="0 0 26 26" fill="none">
+          <circle cx="13" cy="13" r="13" fill="#3a9e60"/>
+          <path d="M7 13.5L11 17.5L19 9" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <p class="yes-text"><strong>You've achieved things on the outside</strong> — the job, the title, the life that looks right — and still feel empty on the inside</p>
+      </div>
+
+      <div class="yes-item">
+        <svg class="yes-icon" viewBox="0 0 26 26" fill="none">
+          <circle cx="13" cy="13" r="13" fill="#3a9e60"/>
+          <path d="M7 13.5L11 17.5L19 9" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <p class="yes-text"><strong>You know God placed something in you</strong> — but fear, doubt, or the opinions of others have kept you from fully walking in it</p>
+      </div>
+
+      <div class="yes-item">
+        <svg class="yes-icon" viewBox="0 0 26 26" fill="none">
+          <circle cx="13" cy="13" r="13" fill="#3a9e60"/>
+          <path d="M7 13.5L11 17.5L19 9" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <p class="yes-text"><strong>You're tired of living someone else's definition</strong> of success and ready to discover what yours actually looks like</p>
+      </div>
+
+      <div class="yes-item">
+        <svg class="yes-icon" viewBox="0 0 26 26" fill="none">
+          <circle cx="13" cy="13" r="13" fill="#3a9e60"/>
+          <path d="M7 13.5L11 17.5L19 9" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <p class="yes-text"><strong>You're ready to do the inner work</strong> — not just read about it, but actually go there and let something shift</p>
+      </div>
+
+    </div>
+
+    <!-- RIGHT — NOT FOR YOU -->
+    <div class="card-no">
+      <p class="card-no-title">Not For You</p>
+
+      <div class="no-item">
+        <svg class="no-icon" viewBox="0 0 26 26" fill="none">
+          <circle cx="13" cy="13" r="13" fill="#e53e3e"/>
+          <path d="M8.5 8.5L17.5 17.5M17.5 8.5L8.5 17.5" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+        <p class="no-text">You're looking for a quick fix or a formula that tells you exactly what to do without doing any inner work</p>
+      </div>
+
+      <div class="no-item">
+        <svg class="no-icon" viewBox="0 0 26 26" fill="none">
+          <circle cx="13" cy="13" r="13" fill="#e53e3e"/>
+          <path d="M8.5 8.5L17.5 17.5M17.5 8.5L8.5 17.5" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+        <p class="no-text">You think clarity about your purpose is something that just happens to you — not something you actively step into</p>
+      </div>
+
+      <div class="no-item">
+        <svg class="no-icon" viewBox="0 0 26 26" fill="none">
+          <circle cx="13" cy="13" r="13" fill="#e53e3e"/>
+          <path d="M8.5 8.5L17.5 17.5M17.5 8.5L8.5 17.5" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+        <p class="no-text">You want someone to validate the life you've already been living — not challenge you to look deeper at what's underneath it</p>
+      </div>
+
+      <div class="no-item">
+        <svg class="no-icon" viewBox="0 0 26 26" fill="none">
+          <circle cx="13" cy="13" r="13" fill="#e53e3e"/>
+          <path d="M8.5 8.5L17.5 17.5M17.5 8.5L8.5 17.5" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+        <p class="no-text">You're still betting that more hustle, more strategy, or the next program will give you the direction you're missing</p>
+      </div>
+
+      <div class="no-item">
+        <svg class="no-icon" viewBox="0 0 26 26" fill="none">
+          <circle cx="13" cy="13" r="13" fill="#e53e3e"/>
+          <path d="M8.5 8.5L17.5 17.5M17.5 8.5L8.5 17.5" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+        <p class="no-text">You're not willing to question the identity and beliefs that have been running your life up until now</p>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+</body>
+</html>
