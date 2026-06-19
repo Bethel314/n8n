@@ -3,237 +3,552 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet"/>
 <style>
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: #0f2318; -webkit-font-smoothing: antialiased; }
 
-  .wop-section {
-    background: #132b1e;
-    padding: 48px 16px;
-    font-family: 'Inter', sans-serif;
-    width: 100%;
-  }
-
-  .wop-label {
+  /* ─── SHARED ─── */
+  .section-label {
     text-align: center;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.15em;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: #6abf8a;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
 
-  .wop-heading {
+  .section-heading {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 30px;
+    font-size: 28px;
     font-weight: 700;
     color: #ffffff;
     text-align: center;
     line-height: 1.2;
-    margin-bottom: 18px;
+    margin-bottom: 10px;
   }
 
-  .wop-intro {
-    font-size: 16px;
-    color: rgba(255,255,255,0.75);
+  .section-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.6);
     text-align: center;
     line-height: 1.7;
     font-style: italic;
-    margin-bottom: 18px;
+    margin-bottom: 28px;
     padding: 0 4px;
   }
+  .section-sub strong { color: #6abf8a; font-style: italic; }
 
-  .wop-intro strong {
-    color: #6abf8a;
-    font-style: italic;
+  /* ─── CURRICULUM ─── */
+  .curriculum-section {
+    background: #0f2318;
+    padding: 52px 16px 40px;
   }
 
-  .wop-badge {
-    background: rgba(106,191,138,0.12);
-    border: 1px solid rgba(106,191,138,0.3);
-    border-radius: 50px;
-    padding: 10px 18px;
-    font-size: 13px;
-    color: rgba(255,255,255,0.8);
-    text-align: center;
-    margin: 0 auto 36px;
-    display: block;
-    width: fit-content;
-    max-width: 100%;
-    line-height: 1.5;
-  }
-
-  .wop-grid {
+  .week-list {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     width: 100%;
   }
 
-  .wop-card {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(106,191,138,0.2);
+  .week-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(106,191,138,0.22);
+    border-left: 3px solid rgba(106,191,138,0.5);
     border-radius: 10px;
     padding: 16px 18px;
-    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    transition: background 0.25s ease, border-color 0.25s ease;
+    gap: 5px;
     -webkit-tap-highlight-color: transparent;
+    transition: background 0.2s, border-color 0.2s;
   }
-
-  .wop-card:active {
+  .week-card:active {
     background: rgba(106,191,138,0.08);
-    border-color: rgba(106,191,138,0.45);
+    border-color: rgba(106,191,138,0.5);
   }
 
-  .wop-card.highlighted {
+  .week-card.highlighted {
     background: rgba(106,191,138,0.1);
-    border-color: #6abf8a;
-    border-left: 4px solid #6abf8a;
+    border-left-color: #6abf8a;
+    border-color: rgba(106,191,138,0.4);
   }
 
-  .wop-week-label {
-    font-size: 11px;
+  .week-num {
+    font-size: 10px;
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: #6abf8a;
   }
 
-  .wop-week-title {
+  .week-title {
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 800;
     color: #ffffff;
-    line-height: 1.35;
+    line-height: 1.3;
+  }
+
+  .week-desc {
+    font-size: 14px;
+    color: rgba(255,255,255,0.58);
+    line-height: 1.6;
   }
 
   .you-are-here {
     display: inline-block;
     background: #6abf8a;
     color: #0d1f14;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 50px;
+    margin-top: 4px;
+    width: fit-content;
+  }
+
+  /* ─── BONUS SECTION ─── */
+  .bonus-section {
+    background: #0b1c10;
+    padding: 40px 16px;
+    border-top: 1px solid rgba(106,191,138,0.1);
+  }
+
+  .bonus-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .bonus-tag {
+    background: #6abf8a;
+    color: #0d1f14;
     font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 50px;
+  }
+  .bonus-header-text {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    font-style: italic;
+  }
+
+  .bonus-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+  }
+
+  .bonus-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px dashed rgba(106,191,138,0.25);
+    border-radius: 12px;
+    padding: 20px 18px 22px;
+  }
+
+  .bonus-card-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+  .bonus-num {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: rgba(106,191,138,0.7);
+  }
+  .bonus-type-pill {
+    font-size: 9px;
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    padding: 3px 10px;
+    background: rgba(106,191,138,0.12);
+    color: #6abf8a;
+    border: 1px solid rgba(106,191,138,0.25);
+    padding: 2px 8px;
     border-radius: 50px;
-    margin-top: 6px;
-    width: fit-content;
+  }
+
+  .bonus-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.25;
+    margin-bottom: 8px;
+  }
+
+  .bonus-desc {
+    font-size: 15px;
+    color: rgba(255,255,255,0.62);
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+
+  .bonus-perks {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .bonus-perks li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.55;
+  }
+  .bonus-perks li::before {
+    content: '✓';
+    color: #6abf8a;
+    font-weight: 700;
+    font-size: 13px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ─── PRICING ─── */
+  .pricing-block {
+    background: linear-gradient(180deg, #091510 0%, #060f0a 100%);
+    border-top: 1px solid rgba(106,191,138,0.12);
+    padding: 56px 16px 64px;
+    text-align: center;
+  }
+
+  .access-granted {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 48px;
+    font-weight: 700;
+    font-style: italic;
+    color: #6abf8a;
+    line-height: 1;
+    margin-bottom: 28px;
+    text-shadow: 0 0 40px rgba(106,191,138,0.2);
+  }
+
+  .was-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.08em;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .was-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.55);
+    text-decoration: line-through;
+    text-decoration-color: #e53e3e;
+    text-decoration-thickness: 4px;
+    line-height: 1;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .now-price-row {
+    margin-bottom: 12px;
+  }
+  .now-off-label {
+    font-size: 16px;
+    font-weight: 700;
+    color: #6abf8a;
+    margin-bottom: 2px;
+  }
+  .now-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1;
+  }
+  .now-price .dollar {
+    font-size: 36px;
+    vertical-align: super;
+    color: #6abf8a;
+  }
+
+  .page-only {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    margin-bottom: 32px;
+    line-height: 1.6;
+  }
+
+  .cta-btn {
+    display: block;
+    background: linear-gradient(135deg, #4ab87a, #2d7a4a);
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 800;
+    padding: 20px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    box-shadow: 0 6px 28px rgba(74,184,122,0.38);
+    width: 100%;
+    text-align: center;
+    margin-bottom: 14px;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .secure-note {
+    font-size: 12px;
+    color: rgba(255,255,255,0.22);
+    margin-bottom: 12px;
+  }
+
+  .decline-link {
+    display: block;
+    font-size: 13px;
+    color: rgba(255,255,255,0.22);
+    text-decoration: none;
+    margin-bottom: 44px;
+    cursor: pointer;
+  }
+
+  /* Guarantee badge */
+  .guarantee-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .badge-ring {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3a9e60, #1e5035);
+    border: 3px solid rgba(106,191,138,0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 6px rgba(106,191,138,0.08), 0 6px 20px rgba(0,0,0,0.4);
+  }
+  .b-top { font-size: 8px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.8); }
+  .b-pct { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: #ffffff; line-height: 1; }
+  .b-mid { font-size: 8px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.8); }
+  .b-bot { font-size: 8px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-top: 2px; }
+
+  .guarantee-text {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+    text-align: center;
+    max-width: 320px;
   }
 </style>
 </head>
 <body>
 
-<section class="wop-section">
+<!-- ─── CURRICULUM ─── -->
+<section class="curriculum-section">
+  <p class="section-label">What's Inside</p>
+  <h2 class="section-heading">Path to Purpose —<br>12-Week Program</h2>
+  <p class="section-sub">Every week builds on the last. This is a <strong>transformation</strong> you move through step by step.</p>
 
-  <p class="wop-label">The Full Program</p>
-  <h2 class="wop-heading">Path to Purpose —<br>17-Week Program</h2>
+  <div class="week-list">
 
-  <p class="wop-intro">
-    This is a standalone bonus training.<br>
-    Below you will find the full 17-week <strong>Path to Purpose</strong> program that goes deeper into everything covered here.
-  </p>
-
-  <span class="wop-badge">
-    You received this as a bonus gift — the full 17-week program is below
-  </span>
-
-  <div class="wop-grid">
-
-    <div class="wop-card">
-      <p class="wop-week-label">Week 01</p>
-      <p class="wop-week-title">Becoming Intentional</p>
+    <div class="week-card">
+      <p class="week-num">Week 01</p>
+      <p class="week-title">How to Discover Your Purpose</p>
+      <p class="week-desc">Uncover the specific calling God placed inside you and finally give it a name.</p>
     </div>
 
-    <div class="wop-card">
-      <p class="wop-week-label">Week 02</p>
-      <p class="wop-week-title">Becoming Aware</p>
+    <div class="week-card">
+      <p class="week-num">Week 02</p>
+      <p class="week-title">Activating Your Purpose</p>
+      <p class="week-desc">Move from knowing your purpose to actually living it — starting right where you are.</p>
     </div>
 
-    <div class="wop-card">
-      <p class="wop-week-label">Week 03</p>
-      <p class="wop-week-title">Turning Purpose into Profits</p>
+    <div class="week-card">
+      <p class="week-num">Week 03</p>
+      <p class="week-title">Creating A Vision For The Future</p>
+      <p class="week-desc">Build a clear, specific picture of where you're going so your next steps become obvious.</p>
     </div>
 
-    <div class="wop-card">
-      <p class="wop-week-label">Week 04</p>
-      <p class="wop-week-title">Creating A Vision For The Future</p>
+    <div class="week-card">
+      <p class="week-num">Week 04</p>
+      <p class="week-title">Expanding Your Belief System</p>
+      <p class="week-desc">Stretch what you believe is possible and remove the ceiling you've been living under.</p>
     </div>
 
-    <div class="wop-card">
-      <p class="wop-week-label">Week 05</p>
-      <p class="wop-week-title">Expanding Your Belief System</p>
+    <div class="week-card">
+      <p class="week-num">Week 05</p>
+      <p class="week-title">Process of Human Thoughts</p>
+      <p class="week-desc">Learn how your thoughts are creating your current reality — and how to change the pattern.</p>
     </div>
 
-    <div class="wop-card">
-      <p class="wop-week-label">Week 06</p>
-      <p class="wop-week-title">Process of Human Thoughts</p>
+    <div class="week-card">
+      <p class="week-num">Week 06</p>
+      <p class="week-title">Process of Human Thoughts Pt. 2</p>
+      <p class="week-desc">Go deeper into rewiring the patterns that have been keeping you stuck without you knowing it.</p>
     </div>
 
-    <div class="wop-card">
-      <p class="wop-week-label">Week 07</p>
-      <p class="wop-week-title">Process of Human Thoughts Part 2</p>
+    <div class="week-card">
+      <p class="week-num">Week 07</p>
+      <p class="week-title">Importance of Forgiveness</p>
+      <p class="week-desc">Release the weight of the past so it stops blocking your future — this week changes everything.</p>
     </div>
 
-    <div class="wop-card">
-      <p class="wop-week-label">Week 08</p>
-      <p class="wop-week-title">Importance of Forgiveness</p>
+    <div class="week-card">
+      <p class="week-num">Week 08</p>
+      <p class="week-title">Secrets of the Universe</p>
+      <p class="week-desc">Understand the invisible laws governing your life and how to work with them, not against them.</p>
     </div>
 
-    <div class="wop-card">
-      <p class="wop-week-label">Week 09</p>
-      <p class="wop-week-title">Secrets of the Universe</p>
+    <div class="week-card">
+      <p class="week-num">Week 09</p>
+      <p class="week-title">Understanding the Secrets of the Universe</p>
+      <p class="week-desc">Apply these truths at a deeper level so they stop being ideas and start being lived.</p>
     </div>
 
-    <div class="wop-card">
-      <p class="wop-week-label">Week 10</p>
-      <p class="wop-week-title">Understanding the Secrets of the Universe</p>
+    <div class="week-card">
+      <p class="week-num">Week 10</p>
+      <p class="week-title">The Power of the Word</p>
+      <p class="week-desc">Discover how what you speak over your life is either building it or tearing it down.</p>
     </div>
 
-    <div class="wop-card">
-      <p class="wop-week-label">Week 11</p>
-      <p class="wop-week-title">The Power of the Word</p>
+    <div class="week-card">
+      <p class="week-num">Week 11</p>
+      <p class="week-title">Self Vs. I</p>
+      <p class="week-desc">Learn the difference between the ego self that keeps you small and the true I built for greatness.</p>
     </div>
 
-    <div class="wop-card">
-      <p class="wop-week-label">Week 12</p>
-      <p class="wop-week-title">Self Vs. I</p>
-    </div>
-
-    <div class="wop-card">
-      <p class="wop-week-label">Week 13</p>
-      <p class="wop-week-title">I Am God</p>
-    </div>
-
-    <div class="wop-card">
-      <p class="wop-week-label">Week 14</p>
-      <p class="wop-week-title">How To Market</p>
-    </div>
-
-    <div class="wop-card">
-      <p class="wop-week-label">Week 15</p>
-      <p class="wop-week-title">3 Step Spiritual Creation Process</p>
-    </div>
-
-    <div class="wop-card">
-      <p class="wop-week-label">Week 16</p>
-      <p class="wop-week-title">The Art of Sales</p>
-    </div>
-
-    <div class="wop-card">
-      <p class="wop-week-label">Week 17</p>
-      <p class="wop-week-title">Creating the Freedom Number</p>
+    <div class="week-card">
+      <p class="week-num">Week 12</p>
+      <p class="week-title">I Am God</p>
+      <p class="week-desc">Step fully into the divine identity God assigned to you before you were born. This is where it all comes together.</p>
     </div>
 
   </div>
 </section>
+
+<!-- ─── BONUSES ─── -->
+<section class="bonus-section">
+  <p class="section-label">Included Free</p>
+  <h2 class="section-heading">4 Bonus Lessons</h2>
+  <p class="section-sub">Included with your access at no extra charge.</p>
+
+  <div class="bonus-header-row">
+    <span class="bonus-tag">+ Bonus</span>
+    <span class="bonus-header-text">All 4 included with your access</span>
+  </div>
+
+  <div class="bonus-list">
+
+    <div class="bonus-card">
+      <div class="bonus-card-top">
+        <span class="bonus-num">Bonus 01</span>
+        <span class="bonus-type-pill">Lesson</span>
+      </div>
+      <p class="bonus-title">Becoming Intentional</p>
+      <p class="bonus-desc">How to stop moving through life on autopilot and start designing every day with purpose and direction.</p>
+      <ul class="bonus-perks">
+        <li>The shift from reactive to intentional living</li>
+        <li>A daily practice to keep you anchored in purpose</li>
+        <li>Why most people drift — and how to stop</li>
+      </ul>
+    </div>
+
+    <div class="bonus-card">
+      <div class="bonus-card-top">
+        <span class="bonus-num">Bonus 02</span>
+        <span class="bonus-type-pill">Lesson</span>
+      </div>
+      <p class="bonus-title">Becoming Aware</p>
+      <p class="bonus-desc">You cannot change what you cannot see. This lesson develops the self-awareness that makes everything else in the program land deeper.</p>
+      <ul class="bonus-perks">
+        <li>How to spot subconscious patterns running your life</li>
+        <li>A framework for honest self-assessment without judgment</li>
+        <li>Why awareness is the first step to every real transformation</li>
+      </ul>
+    </div>
+
+    <div class="bonus-card">
+      <div class="bonus-card-top">
+        <span class="bonus-num">Bonus 03</span>
+        <span class="bonus-type-pill">Lesson</span>
+      </div>
+      <p class="bonus-title">3 Step Spiritual Creation Process</p>
+      <p class="bonus-desc">A repeatable framework for creating what you want in the physical world by starting in the spiritual — the way God designed it.</p>
+      <ul class="bonus-perks">
+        <li>The exact 3 steps for spiritual and physical manifestation</li>
+        <li>How to align your thoughts, words, and actions</li>
+        <li>Why most people skip Step 1 and stay stuck</li>
+      </ul>
+    </div>
+
+    <div class="bonus-card">
+      <div class="bonus-card-top">
+        <span class="bonus-num">Bonus 04</span>
+        <span class="bonus-type-pill">4-Part Training</span>
+      </div>
+      <p class="bonus-title">Turning Purpose into Profits</p>
+      <p class="bonus-desc">A 4-part training on how to make your first $10 to $1,000 with your purpose. Purpose without provision is just a feeling — this training closes the gap.</p>
+      <ul class="bonus-perks">
+        <li>How to identify the monetizable gifts already inside you</li>
+        <li>The exact steps to go from calling to first dollar earned</li>
+        <li>How to charge for your purpose without guilt or hesitation</li>
+        <li>Why your purpose and your profits were never in conflict</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── PRICING ─── -->
+<div class="pricing-block">
+
+  <p class="access-granted">Access Granted</p>
+
+  <span class="was-label">Total Value</span>
+  <span class="was-price">$997</span>
+
+  <div class="now-price-row">
+    <p class="now-off-label">70% OFF — Today Only</p>
+    <p class="now-price"><span class="dollar">$</span>297</p>
+  </div>
+
+  <p class="page-only">One-time payment · Available only on this page · Only right now</p>
+
+  <a href="#CHECKOUT_LINK_HERE" class="cta-btn">Yes — Give Me Instant Access Now</a>
+  <p class="secure-note">Secure checkout · Instant access · Self-paced</p>
+  <a href="#" class="decline-link">No thank you, I'll stay where I am.</a>
+
+  <div class="guarantee-wrap">
+    <div class="badge-ring">
+      <span class="b-top">Guaranteed</span>
+      <span class="b-pct">100%</span>
+      <span class="b-mid">Money-Back</span>
+      <span class="b-bot">Risk-Free</span>
+    </div>
+    <p class="guarantee-text">
+      Go through the program for 7 days. If you don't feel clarity and momentum toward your purpose, we will give you a full refund. No questions asked.
+    </p>
+  </div>
+
+</div>
 
 </body>
 </html>
