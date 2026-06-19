@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Rich Life Business Strategy Call with Anita</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --olive: #6b7c44;
+      --olive-light: #8a9d5a;
+      --olive-dark: #4e5c30;
+      --cream: #faf8f3;
+      --warm-white: #fff9f2;
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --charcoal: #2c2c2c;
+      --text-muted: #6b6b6b;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: var(--cream);
+      color: var(--charcoal);
+      line-height: 1.7;
+    }
+
+    .hero {
+      background: linear-gradient(160deg, #3d4a25 0%, #5a6e34 40%, #7a8f4a 100%);
+      color: #fff;
+      padding: 90px 24px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(201,168,76,0.25);
+      border: 1px solid var(--gold-light);
+      color: var(--gold-light);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 6px 20px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 em { font-style: italic; color: var(--gold-light); }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.18rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.82);
+      max-width: 640px;
+      margin: 18px auto 0;
+    }
+
+    .hero-meta {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .hero-meta-item svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+    .scarcity-bar {
+      background: rgba(201,168,76,0.15);
+      border-top: 1px solid rgba(201,168,76,0.3);
+      border-bottom: 1px solid rgba(201,168,76,0.3);
+      padding: 14px 24px;
+      text-align: center;
+      color: var(--gold-light);
+      font-size: 0.88rem;
+      letter-spacing: 0.02em;
+    }
+
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 72px 24px; }
+
+    .for-whom { background: var(--warm-white); text-align: center; }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--olive);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--charcoal);
+      max-width: 700px;
+      margin: 0 auto 16px;
+    }
+
+    .section-title em { font-style: italic; color: var(--olive); }
+
+    .section-intro {
+      color: var(--text-muted);
+      max-width: 580px;
+      margin: 0 auto 48px;
+      font-size: 1.02rem;
+    }
+
+    .for-whom-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .for-whom-card {
+      background: #fff;
+      border: 1px solid #e8e2d6;
+      border-radius: 12px;
+      padding: 28px 24px;
+      text-align: left;
+    }
+
+    .for-whom-card .icon { font-size: 1.6rem; margin-bottom: 12px; }
+    .for-whom-card p { font-size: 0.95rem; color: var(--charcoal); line-height: 1.6; }
+
+    .explore { background: var(--cream); text-align: center; }
+
+    .explore-list {
+      list-style: none;
+      max-width: 680px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .explore-list li {
+      background: #fff;
+      border-left: 3px solid var(--gold);
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      text-align: left;
+      font-size: 0.97rem;
+      color: var(--charcoal);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .explore-list li span.spark { font-size: 1.1rem; flex-shrink: 0; }
+
+    .about {
+      background: linear-gradient(135deg, #3d4a25 0%, #5a6e34 100%);
+      color: #fff;
+    }
+
+    .about-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .about-avatar {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      color: var(--gold-light);
+      border: 2px solid rgba(201,168,76,0.4);
+      max-width: 220px;
+      margin: 0 auto;
+    }
+
+    .about .section-label { color: var(--gold-light); }
+
+    .about h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 400;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .about p {
+      color: rgba(255,255,255,0.82);
+      font-size: 0.97rem;
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+
+    .about-tag {
+      display: inline-block;
+      background: rgba(201,168,76,0.2);
+      border: 1px solid rgba(201,168,76,0.4);
+      color: var(--gold-light);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-right: 8px;
+      margin-top: 8px;
+    }
+
+    .booking { background: var(--warm-white); text-align: center; }
+    .booking-header { max-width: 680px; margin: 0 auto 48px; }
+
+    .availability-table {
+      max-width: 560px;
+      margin: 0 auto 48px;
+      border: 1px solid #e0d9cc;
+      border-radius: 12px;
+      overflow: hidden;
+      font-size: 0.88rem;
+    }
+
+    .availability-table table { width: 100%; border-collapse: collapse; }
+
+    .availability-table th {
+      background: var(--olive);
+      color: #fff;
+      padding: 12px 16px;
+      text-align: left;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+    }
+
+    .availability-table td {
+      padding: 11px 16px;
+      border-bottom: 1px solid #ede7db;
+      color: var(--charcoal);
+    }
+
+    .availability-table tr:last-child td { border-bottom: none; }
+
+    .status-booked { color: #b5451b; font-weight: 600; }
+    .status-available { color: var(--olive); font-weight: 700; }
+    .status-unavail { color: #aaa; }
+
+    .calendar-embed-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.10);
+      border: 1px solid #e0d9cc;
+      background: #fff;
+    }
+
+    .calendar-embed-wrap iframe {
+      width: 100%;
+      min-height: 700px;
+      border: none;
+      display: block;
+    }
+
+    .confirm { background: var(--cream); text-align: center; }
+
+    .confirm-card {
+      max-width: 640px;
+      margin: 40px auto 0;
+      background: #fff;
+      border: 1px solid #e8e2d6;
+      border-top: 4px solid var(--gold);
+      border-radius: 12px;
+      padding: 40px 36px;
+      text-align: left;
+    }
+
+    .confirm-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.7rem;
+      font-weight: 400;
+      margin-bottom: 20px;
+      color: var(--charcoal);
+    }
+
+    .confirm-card ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+
+    .confirm-card ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.95rem;
+      color: var(--charcoal);
+    }
+
+    .confirm-card ul li::before {
+      content: '\2714';
+      color: var(--olive);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .reminders { margin-top: 28px; padding-top: 24px; border-top: 1px solid #ede7db; }
+
+    .reminders h4 {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--olive);
+      margin-bottom: 14px;
+    }
+
+    .reminder-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+
+    .chip {
+      background: #f2f0ea;
+      border: 1px solid #ddd8cc;
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 0.82rem;
+      color: var(--charcoal);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .chip svg { width: 14px; height: 14px; color: var(--olive); }
+
+    footer {
+      background: #2a311a;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 36px 24px;
+      font-size: 0.85rem;
+    }
+
+    footer a { color: var(--gold-light); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    .footer-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      color: #fff;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    @media (max-width: 640px) {
+      .about-inner { grid-template-columns: 1fr; text-align: center; }
+      .about-avatar { max-width: 140px; }
+      .confirm-card { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-badge">Complimentary &bull; By Invitation &bull; Limited Spots</div>
+  <h1>Free <em>Rich Life</em> Business<br>Strategy Call with Anita</h1>
+  <p class="hero-sub">
+    A private, focused conversation for ambitious women entrepreneurs and professionals
+    ready to redefine success and step into their next chapter.
+  </p>
+  <div class="hero-meta">
+    <span class="hero-meta-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      15 Minutes
+    </span>
+    <span class="hero-meta-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 10l4.553-2.069A1 1 0 0121 8.82v6.36a1 1 0 01-1.447.894L15 14"/><rect x="3" y="6" width="12" height="12" rx="2"/></svg>
+      Via Zoom
+    </span>
+    <span class="hero-meta-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Wednesdays Only
+    </span>
+    <span class="hero-meta-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+      6 Spots Per Week
+    </span>
+  </div>
+</header>
+
+<div class="scarcity-bar">
+  &#10022; &nbsp; Only six complimentary strategy calls are available each Wednesday. Once booked, the calendar closes until the following week. &nbsp; &#10022;
+</div>
+
+<section class="for-whom">
+  <div class="container">
+    <p class="section-label">Is This For You?</p>
+    <h2 class="section-title">For heart-centred women who are <em>ready for what's next</em></h2>
+    <p class="section-intro">
+      This session is designed for ambitious women entrepreneurs and professionals who want more clarity, freedom, and fulfillment in this season of life.
+    </p>
+    <div class="for-whom-grid">
+      <div class="for-whom-card">
+        <div class="icon">&#127807;</div>
+        <p>You're feeling <strong>stuck or uncertain</strong> about your next chapter personally or professionally.</p>
+      </div>
+      <div class="for-whom-card">
+        <div class="icon">&#10024;</div>
+        <p>You crave more <strong>clarity, freedom, and fulfillment</strong> but aren't sure how to get there.</p>
+      </div>
+      <div class="for-whom-card">
+        <div class="icon">&#128293;</div>
+        <p>You're ready to <strong>simplify, scale, and create more freedom</strong> in your life and business.</p>
+      </div>
+      <div class="for-whom-card">
+        <div class="icon">&#128155;</div>
+        <p>You want to build a <strong>"Rich Life"</strong> close to your heart — one you don't want to retire from.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="explore">
+  <div class="container">
+    <p class="section-label">Our Conversation</p>
+    <h2 class="section-title">What we'll <em>explore together</em></h2>
+    <p class="section-intro" style="margin-bottom:40px;">
+      This is not a sales call. It's a strategic conversation designed to help you gain clarity and direction.
+    </p>
+    <ul class="explore-list">
+      <li><span class="spark">&#10024;</span> What you truly want next in your life personally and professionally</li>
+      <li><span class="spark">&#10024;</span> Where you may be feeling overwhelmed, unfulfilled, or stuck</li>
+      <li><span class="spark">&#10024;</span> What success means to you in this season of life</li>
+      <li><span class="spark">&#10024;</span> Opportunities to simplify, scale, and create more freedom</li>
+      <li><span class="spark">&#10024;</span> The next best steps to move toward your "Rich Life" close to your heart</li>
+    </ul>
+  </div>
+</section>
+
+<section class="about">
+  <div class="about-inner">
+    <div class="about-avatar">A</div>
+    <div>
+      <p class="section-label">Your Host</p>
+      <h2>Meet Anita Heidema</h2>
+      <p>
+        Anita is a heart-centred business strategist and life coach dedicated to helping ambitious women entrepreneurs and professionals create a Rich Life they're deeply proud of — personally and professionally.
+      </p>
+      <p>
+        With years of experience guiding women through pivotal transitions, Anita blends strategic clarity with soulful coaching to help you uncover what truly matters and build a path forward that feels aligned and energising.
+      </p>
+      <div>
+        <span class="about-tag">Rich Life Strategist</span>
+        <span class="about-tag">Business Coach</span>
+        <span class="about-tag">#richlifebiz</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="booking" id="book">
+  <div class="container">
+    <div class="booking-header">
+      <p class="section-label">Reserve Your Spot</p>
+      <h2 class="section-title">Limited Complimentary<br><em>Strategy Calls with Anita</em></h2>
+      <p class="section-intro">
+        I reserve Wednesdays for a small number of complimentary strategy conversations for women who are ready to redefine success and create a Rich Life personally and professionally they don't want to retire from.
+      </p>
+    </div>
+
+    <div class="availability-table">
+      <table>
+        <thead>
+          <tr><th>Day</th><th>Availability</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Monday</td><td class="status-booked">Fully Booked</td></tr>
+          <tr><td>Tuesday</td><td class="status-booked">Fully Booked</td></tr>
+          <tr><td>Wednesday</td><td class="status-available">&#11044; Limited Availability</td></tr>
+          <tr><td>Thursday</td><td class="status-booked">Fully Booked</td></tr>
+          <tr><td>Friday</td><td class="status-booked">Fully Booked</td></tr>
+          <tr><td>Saturday</td><td class="status-unavail">Unavailable</td></tr>
+          <tr><td>Sunday</td><td class="status-unavail">Unavailable</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="calendar-embed-wrap">
+      <iframe
+        src="https://api.leadconnectorhq.com/widget/bookings/free-life-business-strategy-call"
+        title="Book a Free Rich Life Business Strategy Call with Anita"
+        loading="lazy"
+        allow="camera; microphone"
+      ></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="confirm">
+  <div class="container">
+    <p class="section-label">After You Book</p>
+    <h2 class="section-title">What to <em>expect</em></h2>
+    <div class="confirm-card">
+      <h3>You're booked! I look forward to meeting you.</h3>
+      <p style="margin-bottom:20px; color:var(--text-muted); font-size:0.95rem;">
+        Please come prepared to discuss:
+      </p>
+      <ul>
+        <li>Where you are personally and professionally today</li>
+        <li>What feels out of alignment or overwhelming</li>
+        <li>What your ideal Rich Life looks like over the next 1–3 years</li>
+        <li>What kind of freedom, impact, and fulfillment you truly desire</li>
+      </ul>
+      <div class="reminders">
+        <h4>Automated Reminders</h4>
+        <div class="reminder-chips">
+          <span class="chip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+            Confirmation email
+          </span>
+          <span class="chip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+            Night-before reminder
+          </span>
+          <span class="chip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+            2-hour reminder
+          </span>
+          <span class="chip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Reschedule up to 3 days out
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-name">Anita Heidema</span>
+  <a href="https://www.anitaheidema.com" target="_blank" rel="noopener">www.anitaheidema.com</a>
+  <p style="margin-top:12px;">#richlifebiz &bull; &copy; 2026 Anita Heidema. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
