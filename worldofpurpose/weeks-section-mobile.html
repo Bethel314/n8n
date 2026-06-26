@@ -532,7 +532,7 @@
 
   <p class="page-only">One-time payment · Available only on this page · Only right now</p>
 
-  <a href="#CHECKOUT_LINK_HERE" class="cta-btn">Yes — Give Me Instant Access Now</a>
+  <button onclick="openCheckout()" class="cta-btn">Yes — Give Me Instant Access Now</button>
   <p class="secure-note">Secure checkout · Instant access · Self-paced</p>
   <a href="#" class="decline-link">No thank you, I'll stay where I am.</a>
 
@@ -549,6 +549,73 @@
   </div>
 
 </div>
+
+<!-- ─── CHECKOUT MODAL ─── -->
+<div id="checkoutOverlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:9999;align-items:center;justify-content:center;padding:12px;">
+  <div style="background:#0f2318;border:1px solid rgba(106,191,138,0.3);border-radius:14px;width:100%;max-width:480px;max-height:92vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.7);">
+
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid rgba(106,191,138,0.15);flex-shrink:0;">
+      <p style="font-family:Inter,sans-serif;font-size:15px;font-weight:700;color:#fff;">Path to Purpose <span style="color:#6abf8a;">— $297</span></p>
+      <button onclick="closeCheckout()" style="background:rgba(255,255,255,0.06);border:none;color:rgba(255,255,255,0.6);font-size:18px;width:30px;height:30px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;">✕</button>
+    </div>
+
+    <div id="iframeWrap" style="flex:1;overflow:hidden;min-height:460px;">
+      <iframe id="checkoutFrame" src="" data-src="https://www.fanbasis.com/agency-checkout/world-of-purpose/R59xq" allow="payment" title="Checkout" style="width:100%;height:100%;border:none;display:block;min-height:460px;"></iframe>
+    </div>
+
+    <div id="checkoutFallback" style="display:none;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:36px 20px;text-align:center;min-height:280px;">
+      <p style="font-family:Inter,sans-serif;font-size:15px;color:rgba(255,255,255,0.65);line-height:1.65;">Click below to complete your purchase securely.</p>
+      <a href="https://www.fanbasis.com/agency-checkout/world-of-purpose/R59xq" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#4ab87a,#2d7a4a);color:#fff;font-family:Inter,sans-serif;font-size:16px;font-weight:800;padding:16px 28px;border-radius:10px;text-decoration:none;">Complete My Purchase →</a>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  .cta-btn { font-family: 'Inter', sans-serif; border: none; cursor: pointer; }
+  body.modal-open { overflow: hidden; }
+</style>
+
+<script>
+  const CHECKOUT_URL = 'https://www.fanbasis.com/agency-checkout/world-of-purpose/R59xq';
+
+  function openCheckout() {
+    const overlay = document.getElementById('checkoutOverlay');
+    const frame = document.getElementById('checkoutFrame');
+    const fallback = document.getElementById('checkoutFallback');
+    const iframeWrap = document.getElementById('iframeWrap');
+    if (!frame.src || frame.src === window.location.href) {
+      frame.src = CHECKOUT_URL;
+    }
+    overlay.style.display = 'flex';
+    document.body.classList.add('modal-open');
+    setTimeout(function() {
+      try {
+        var doc = frame.contentDocument || frame.contentWindow.document;
+        if (!doc || doc.body === null || doc.body.innerHTML === '') {
+          iframeWrap.style.display = 'none';
+          fallback.style.display = 'flex';
+        }
+      } catch(e) {
+        iframeWrap.style.display = 'none';
+        fallback.style.display = 'flex';
+      }
+    }, 3000);
+  }
+
+  function closeCheckout() {
+    document.getElementById('checkoutOverlay').style.display = 'none';
+    document.body.classList.remove('modal-open');
+  }
+
+  document.getElementById('checkoutOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closeCheckout();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeCheckout();
+  });
+</script>
 
 </body>
 </html>
