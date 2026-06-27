@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're Booked – Rich Life Biz Strategy Call</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Inter, sans-serif; background: #f5f2ee; color: #2c2c2c; -webkit-font-smoothing: antialiased; }
+.ah-wrap { background: #f5f2ee; color: #2c2c2c; font-family: Inter, sans-serif; width: 100%; min-height: 100vh; }
+
+.topbar { background: #2c2c2c; padding: 11px 20px; text-align: center; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #c9b99a; }
+
+/* HERO */
+.hero { background: #fff; padding: 56px 24px 48px; text-align: center; border-bottom: 1px solid #e8e2da; }
+.check { width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, #a89070, #7a6552); display: flex; align-items: center; justify-content: center; margin: 0 auto 22px; box-shadow: 0 0 0 10px rgba(168,144,112,0.1), 0 10px 32px rgba(122,101,82,0.25); }
+.check svg { width: 34px; height: 34px; }
+.eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #9b8b72; margin-bottom: 14px; }
+.hero h1 { font-family: "Playfair Display", Georgia, serif; font-size: clamp(28px, 5vw, 48px); font-weight: 700; line-height: 1.2; color: #1a1a1a; max-width: 640px; margin: 0 auto 18px; }
+.hero h1 em { font-style: italic; color: #9b8b72; }
+.hero p { font-size: 17px; color: #5c5c5c; line-height: 1.75; max-width: 500px; margin: 0 auto; }
+
+.divider { width: 48px; height: 1px; background: linear-gradient(90deg, transparent, #c9b99a, transparent); margin: 32px auto; }
+
+/* STEPS */
+.steps { padding: 0 24px 48px; max-width: 620px; margin: 0 auto; }
+.steps-label { text-align: center; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #9b8b72; margin-bottom: 26px; }
+.step { display: flex; align-items: flex-start; gap: 18px; background: #fff; border: 1px solid #e8e2da; border-radius: 12px; padding: 20px 22px; margin-bottom: 10px; }
+.step-num { width: 34px; height: 34px; border-radius: 50%; background: #faf7f3; border: 1px solid #d6cdc2; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; color: #9b8b72; flex-shrink: 0; }
+.step-title { font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 4px; }
+.step-desc { font-size: 13px; color: #6a6a6a; line-height: 1.65; }
+
+/* REMINDER BLOCK */
+.reminder { background: #fff; border-top: 1px solid #e8e2da; border-bottom: 1px solid #e8e2da; padding: 44px 24px; text-align: center; }
+.reminder-inner { max-width: 580px; margin: 0 auto; }
+.reminder h2 { font-family: "Playfair Display", Georgia, serif; font-size: clamp(22px, 3.5vw, 32px); font-weight: 700; color: #1a1a1a; margin-bottom: 10px; }
+.reminder p { font-size: 15px; color: #5c5c5c; line-height: 1.7; margin-bottom: 28px; }
+.reminder-list { list-style: none; text-align: left; display: flex; flex-direction: column; gap: 10px; margin-bottom: 0; }
+.reminder-list li { display: flex; align-items: flex-start; gap: 12px; background: #faf7f3; border: 1px solid #e8e2da; border-radius: 10px; padding: 14px 16px; font-size: 14px; color: #3a3a3a; line-height: 1.6; }
+.reminder-list li svg { flex-shrink: 0; width: 18px; height: 18px; margin-top: 1px; }
+
+/* PREP BLOCK */
+.prep { padding: 48px 24px; max-width: 620px; margin: 0 auto; }
+.prep-label { text-align: center; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #9b8b72; margin-bottom: 14px; }
+.prep h2 { font-family: "Playfair Display", Georgia, serif; font-size: clamp(20px, 3vw, 28px); font-weight: 700; color: #1a1a1a; text-align: center; margin-bottom: 24px; }
+.prep-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.prep-card { background: #fff; border: 1px solid #e8e2da; border-radius: 10px; padding: 18px 18px; }
+.prep-icon { font-size: 22px; margin-bottom: 8px; display: block; }
+.prep-title { font-size: 13px; font-weight: 700; color: #2c2c2c; margin-bottom: 4px; }
+.prep-desc { font-size: 12px; color: #7a7a7a; line-height: 1.6; }
+
+/* FOOTER */
+footer { background: #2c2c2c; border-top: 1px solid #3a3a3a; padding: 30px 24px; text-align: center; }
+.footer-name { font-family: "Playfair Display", Georgia, serif; font-size: 18px; font-weight: 700; color: #c9b99a; margin-bottom: 6px; font-style: italic; }
+footer p { font-size: 12px; color: rgba(255,255,255,0.25); }
+
+@media (max-width: 500px) {
+  .hero { padding: 40px 18px 36px; }
+  .hero h1 { font-size: 26px; }
+  .hero p { font-size: 15px; }
+  .steps { padding: 0 16px 36px; }
+  .step { padding: 16px; gap: 14px; }
+  .reminder { padding: 36px 16px; }
+  .prep { padding: 36px 16px; }
+  .prep-grid { grid-template-columns: 1fr; }
+  footer { padding: 24px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="ah-wrap">
+
+<div class="topbar">Anita Heidema &nbsp;·&nbsp; Rich Life Biz Strategist</div>
+
+<section class="hero">
+  <div class="check">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+  </div>
+  <p class="eyebrow">You're Booked</p>
+  <h1>Your call is confirmed. <em>We'll see you Wednesday.</em></h1>
+  <p>Check your inbox for a confirmation with your Zoom link and appointment time. Everything you need is there.</p>
+</section>
+
+<div class="divider"></div>
+
+<section class="steps">
+  <p class="steps-label">Before Your Call</p>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div>
+      <p class="step-title">Check your email</p>
+      <p class="step-desc">Your confirmation and Zoom link have been sent. Check spam if you don't see it within a few minutes.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">2</div>
+    <div>
+      <p class="step-title">Add it to your calendar</p>
+      <p class="step-desc">You'll receive a calendar invite. Accept it so the call is blocked on your schedule and you get automatic reminders.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">3</div>
+    <div>
+      <p class="step-title">Show up ready to be honest</p>
+      <p class="step-desc">The more openly you can share where you actually are — not the polished version — the more useful this call will be.</p>
+    </div>
+  </div>
+
+</section>
+
+<section class="reminder">
+  <div class="reminder-inner">
+    <h2>You'll receive reminders at</h2>
+    <p>We'll send you a reminder so the call doesn't sneak up on you.</p>
+    <ul class="reminder-list">
+      <li>
+        <svg viewBox="0 0 18 18" fill="none">
+          <rect x="2" y="3" width="14" height="12" rx="2" stroke="#9b8b72" stroke-width="1.3"/>
+          <path d="M2 7h14M6 1v3M12 1v3" stroke="#9b8b72" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+        <span><strong>1 day before</strong> your appointment — a heads up to clear your schedule</span>
+      </li>
+      <li>
+        <svg viewBox="0 0 18 18" fill="none">
+          <circle cx="9" cy="9" r="7.5" stroke="#9b8b72" stroke-width="1.3"/>
+          <path d="M9 5v4l2.5 2.5" stroke="#9b8b72" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+        <span><strong>Morning of</strong> your call — so it's top of mind</span>
+      </li>
+      <li>
+        <svg viewBox="0 0 18 18" fill="none">
+          <path d="M9 2a7 7 0 100 14A7 7 0 009 2z" stroke="#9b8b72" stroke-width="1.3"/>
+          <path d="M9 5v4l3 2" stroke="#9b8b72" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+        <span><strong>15 minutes before</strong> — your Zoom link will be ready</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="prep">
+  <p class="prep-label">Come Prepared</p>
+  <h2>Think about these before Wednesday</h2>
+  <div class="prep-grid">
+    <div class="prep-card">
+      <span class="prep-icon">&#128161;</span>
+      <p class="prep-title">What's working</p>
+      <p class="prep-desc">What in your business is actually generating results right now?</p>
+    </div>
+    <div class="prep-card">
+      <span class="prep-icon">&#128683;</span>
+      <p class="prep-title">What's stuck</p>
+      <p class="prep-desc">Where do you keep hitting a ceiling — revenue, clients, energy?</p>
+    </div>
+    <div class="prep-card">
+      <span class="prep-icon">&#127919;</span>
+      <p class="prep-title">Your rich life vision</p>
+      <p class="prep-desc">What does the business and life you actually want look like?</p>
+    </div>
+    <div class="prep-card">
+      <span class="prep-icon">&#10067;</span>
+      <p class="prep-title">Your #1 question</p>
+      <p class="prep-desc">If you could only ask one thing, what would it be?</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-name">Anita Heidema</div>
+  <p>&copy; 2025 Anita Heidema · Rich Life Biz Strategist. All rights reserved.</p>
+</footer>
+
+</div>
+</body>
+</html>
