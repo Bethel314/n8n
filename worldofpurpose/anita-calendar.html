@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a Free Rich Life Biz Strategy Call with Anita</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Inter, sans-serif; background: #f5f2ee; color: #2c2c2c; -webkit-font-smoothing: antialiased; }
+.ah-wrap { background: #f5f2ee; color: #2c2c2c; font-family: Inter, sans-serif; width: 100%; min-height: 100vh; }
+
+/* TOP BAR */
+.topbar { background: #2c2c2c; padding: 11px 20px; text-align: center; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #c9b99a; }
+
+/* HERO */
+.hero { background: #fff; padding: 60px 24px 52px; text-align: center; border-bottom: 1px solid #e8e2da; }
+.eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #9b8b72; margin-bottom: 16px; }
+.hero h1 { font-family: "Playfair Display", Georgia, serif; font-size: clamp(28px, 5vw, 50px); font-weight: 700; line-height: 1.2; color: #1a1a1a; max-width: 680px; margin: 0 auto 20px; }
+.hero h1 em { font-style: italic; color: #9b8b72; }
+.hero-sub { font-size: 17px; color: #5c5c5c; line-height: 1.75; max-width: 540px; margin: 0 auto 32px; }
+.badges { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+.badge { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: #5c5c5c; }
+.badge svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+/* DIVIDER */
+.divider { width: 48px; height: 1px; background: linear-gradient(90deg, transparent, #c9b99a, transparent); margin: 0 auto; }
+
+/* SCARCITY BAR */
+.scarcity { background: #faf7f3; border-top: 1px solid #e8e2da; border-bottom: 1px solid #e8e2da; padding: 18px 24px; text-align: center; }
+.scarcity p { font-size: 14px; font-weight: 600; color: #6b5c47; letter-spacing: 0.02em; }
+.scarcity span { color: #c0392b; font-weight: 700; }
+
+/* ABOUT */
+.about { background: #fff; padding: 56px 24px; }
+.about-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 220px 1fr; gap: 52px; align-items: start; }
+.about-photo { width: 220px; height: 260px; border-radius: 12px; background: #e8e2da; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.about-photo img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; }
+.photo-placeholder { width: 100%; height: 100%; background: linear-gradient(160deg, #e8e2da, #d6cdc2); display: flex; flex-direction: column; align-items: center; justify-content: center; color: #9b8b72; font-size: 13px; font-weight: 600; text-align: center; padding: 20px; }
+.about-text .section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #9b8b72; margin-bottom: 14px; }
+.about-text h2 { font-family: "Playfair Display", Georgia, serif; font-size: clamp(24px, 3.5vw, 36px); font-weight: 700; color: #1a1a1a; line-height: 1.25; margin-bottom: 16px; }
+.about-text p { font-size: 16px; color: #4a4a4a; line-height: 1.8; margin-bottom: 14px; }
+.about-text p:last-child { margin-bottom: 0; }
+
+/* WHAT WE COVER */
+.covers { background: #faf7f3; padding: 56px 24px; }
+.covers-inner { max-width: 760px; margin: 0 auto; }
+.section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #9b8b72; margin-bottom: 14px; text-align: center; }
+.covers h2 { font-family: "Playfair Display", Georgia, serif; font-size: clamp(24px, 3.5vw, 36px); font-weight: 700; color: #1a1a1a; text-align: center; line-height: 1.25; margin-bottom: 36px; }
+.cover-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.cover-list li { display: flex; align-items: flex-start; gap: 12px; background: #fff; border: 1px solid #e8e2da; border-radius: 10px; padding: 16px 18px; font-size: 15px; color: #3a3a3a; line-height: 1.55; font-weight: 500; }
+.cover-list li svg { flex-shrink: 0; margin-top: 2px; width: 18px; height: 18px; }
+
+/* CALENDAR SECTION */
+.calendar-section { background: #fff; padding: 56px 24px 64px; }
+.calendar-inner { max-width: 860px; margin: 0 auto; }
+.calendar-inner .section-label { text-align: center; display: block; margin-bottom: 14px; }
+.calendar-inner h2 { font-family: "Playfair Display", Georgia, serif; font-size: clamp(24px, 3.5vw, 36px); font-weight: 700; color: #1a1a1a; text-align: center; line-height: 1.25; margin-bottom: 8px; }
+.avail-note { text-align: center; font-size: 14px; color: #7a6a57; margin-bottom: 36px; font-weight: 500; }
+.avail-note strong { color: #6b5c47; }
+.calendar-embed { background: #faf7f3; border: 1px solid #e8e2da; border-radius: 14px; min-height: 600px; display: flex; align-items: center; justify-content: center; color: #9b8b72; font-size: 14px; font-weight: 500; text-align: center; padding: 40px; }
+.calendar-embed p { line-height: 1.7; }
+
+/* FOOTER */
+footer { background: #2c2c2c; padding: 32px 24px; text-align: center; }
+.footer-name { font-family: "Playfair Display", Georgia, serif; font-size: 18px; font-weight: 700; color: #c9b99a; margin-bottom: 6px; font-style: italic; }
+footer p { font-size: 12px; color: rgba(255,255,255,0.3); }
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+  .hero { padding: 44px 18px 40px; }
+  .hero h1 { font-size: 26px; }
+  .hero-sub { font-size: 15px; margin-bottom: 24px; }
+  .badges { gap: 16px; flex-direction: column; align-items: center; }
+  .about-inner { grid-template-columns: 1fr; gap: 28px; }
+  .about-photo { width: 100%; height: 220px; }
+  .about { padding: 40px 18px; }
+  .covers { padding: 40px 18px; }
+  .cover-list { grid-template-columns: 1fr; }
+  .calendar-section { padding: 40px 18px 48px; }
+  .calendar-embed { min-height: 500px; padding: 24px; }
+}
+</style>
+</head>
+<body>
+<div class="ah-wrap">
+
+<div class="topbar">Free Rich Life Biz Strategy Call &nbsp;·&nbsp; Only 6 Spots per Week</div>
+
+<section class="hero">
+  <p class="eyebrow">Complimentary 30-Minute Strategy Session</p>
+  <h1>Let's Map Your Path to a <em>Richer Life</em> — On Your Terms</h1>
+  <p class="hero-sub">This isn't a sales call. It's a real conversation about where you are, where you want to go, and what's actually in the way.</p>
+  <div class="badges">
+    <div class="badge">
+      <svg viewBox="0 0 20 20" fill="none">
+        <circle cx="10" cy="10" r="9" stroke="#9b8b72" stroke-width="1.5"/>
+        <path d="M10 5v5l3 3" stroke="#9b8b72" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      30 minutes · No pressure
+    </div>
+    <div class="badge">
+      <svg viewBox="0 0 20 20" fill="none">
+        <rect x="3" y="4" width="14" height="13" rx="2" stroke="#9b8b72" stroke-width="1.5"/>
+        <path d="M3 8h14M7 2v3M13 2v3" stroke="#9b8b72" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      Wednesdays only
+    </div>
+    <div class="badge">
+      <svg viewBox="0 0 20 20" fill="none">
+        <path d="M10 2a6 6 0 100 12A6 6 0 0010 2zM10 18v-2M6 17l1-1.7M14 17l-1-1.7" stroke="#9b8b72" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      Via Zoom · Complimentary
+    </div>
+  </div>
+</section>
+
+<div class="scarcity">
+  <p>Only <span>6 appointments</span> available each Wednesday — once they're gone, the next opening is the following week.</p>
+</div>
+
+<section class="about">
+  <div class="about-inner">
+    <div class="about-photo">
+      <!-- Replace src with Anita's actual photo URL -->
+      <div class="photo-placeholder">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="margin-bottom:10px;opacity:0.4">
+          <circle cx="24" cy="18" r="10" stroke="#9b8b72" stroke-width="2"/>
+          <path d="M6 42c0-9.9 8.1-18 18-18s18 8.1 18 18" stroke="#9b8b72" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Anita's photo<br>goes here
+      </div>
+    </div>
+    <div class="about-text">
+      <p class="section-label">Your Strategist</p>
+      <h2>Anita Heidema<br><span style="font-size:0.72em;color:#9b8b72;font-weight:600;font-style:italic;">Rich Life Biz Strategist</span></h2>
+      <p>Anita helps purpose-driven entrepreneurs build businesses that actually fund the life they want — without burning out or selling out.</p>
+      <p>With years of experience working with coaches, consultants, and creatives, she brings a clear-eyed lens to revenue strategy, offer design, and sustainable growth. She asks the questions most advisors won't.</p>
+      <p>This call is your chance to get an honest, outside perspective on what's working, what isn't, and what the next right move looks like for you specifically.</p>
+    </div>
+  </div>
+</section>
+
+<section class="covers">
+  <div class="covers-inner">
+    <p class="section-label">What We'll Cover</p>
+    <h2>A focused 30 minutes that actually moves you forward</h2>
+    <ul class="cover-list">
+      <li>
+        <svg viewBox="0 0 18 18" fill="none">
+          <circle cx="9" cy="9" r="8.5" stroke="#c9b99a" stroke-width="1.2"/>
+          <path d="M5 9.5l2.5 2.5L13 6" stroke="#9b8b72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Where you are right now in your business — honestly
+      </li>
+      <li>
+        <svg viewBox="0 0 18 18" fill="none">
+          <circle cx="9" cy="9" r="8.5" stroke="#c9b99a" stroke-width="1.2"/>
+          <path d="M5 9.5l2.5 2.5L13 6" stroke="#9b8b72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        The "rich life" you actually want — and what that requires
+      </li>
+      <li>
+        <svg viewBox="0 0 18 18" fill="none">
+          <circle cx="9" cy="9" r="8.5" stroke="#c9b99a" stroke-width="1.2"/>
+          <path d="M5 9.5l2.5 2.5L13 6" stroke="#9b8b72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        The gap between where you are and where you want to be
+      </li>
+      <li>
+        <svg viewBox="0 0 18 18" fill="none">
+          <circle cx="9" cy="9" r="8.5" stroke="#c9b99a" stroke-width="1.2"/>
+          <path d="M5 9.5l2.5 2.5L13 6" stroke="#9b8b72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        What's actually blocking your revenue (it's rarely what you think)
+      </li>
+      <li>
+        <svg viewBox="0 0 18 18" fill="none">
+          <circle cx="9" cy="9" r="8.5" stroke="#c9b99a" stroke-width="1.2"/>
+          <path d="M5 9.5l2.5 2.5L13 6" stroke="#9b8b72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        One clear next step you can take immediately after the call
+      </li>
+      <li>
+        <svg viewBox="0 0 18 18" fill="none">
+          <circle cx="9" cy="9" r="8.5" stroke="#c9b99a" stroke-width="1.2"/>
+          <path d="M5 9.5l2.5 2.5L13 6" stroke="#9b8b72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Whether working together makes sense — and if so, how
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="calendar-section">
+  <div class="calendar-inner">
+    <span class="section-label">Book Your Spot</span>
+    <h2>Choose a Wednesday That Works for You</h2>
+    <p class="avail-note">Available <strong>Wednesdays only</strong> &nbsp;·&nbsp; 9 AM – 3 PM &nbsp;·&nbsp; <strong>6 spots per week</strong></p>
+
+    <!-- PASTE YOUR GHL CALENDAR EMBED CODE BELOW -->
+    <div class="calendar-embed">
+      <!-- Replace this entire div with your GHL calendar embed snippet -->
+      <p>
+        <strong style="display:block;margin-bottom:8px;color:#6b5c47;font-size:16px;">GHL Calendar Embed Goes Here</strong>
+        Paste your GoHighLevel calendar embed code in place of this block.<br>
+        Calendar: <em>Free Rich Life Biz Strategy Call with Anita</em>
+      </p>
+    </div>
+    <!-- END CALENDAR EMBED -->
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-name">Anita Heidema</div>
+  <p>&copy; 2025 Anita Heidema · Rich Life Biz Strategist. All rights reserved.</p>
+</footer>
+
+</div>
+</body>
+</html>
