@@ -3,404 +3,450 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Life of Purpose Community – World of Purpose</title>
+<title>World of Purpose Community</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: Inter, sans-serif; background: #0a1a0f; color: #fff; -webkit-font-smoothing: antialiased; }
-.wop-wrap { background: #0a1a0f; color: #fff; font-family: Inter, sans-serif; width: 100%; min-height: 100vh; }
+.wop { background: #0a1a0f; color: #fff; font-family: Inter, sans-serif; width: 100%; min-height: 100vh; }
 
-/* ── ANNOUNCEMENT BAR ── */
-.announce { background: rgba(106,191,138,0.1); border-bottom: 1px solid rgba(106,191,138,0.2); padding: 10px 20px; text-align: center; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #6abf8a; }
-.announce span { color: rgba(255,255,255,0.4); margin: 0 10px; }
+/* ── TOPBAR ── */
+.topbar { background: rgba(106,191,138,0.08); border-bottom: 1px solid rgba(106,191,138,0.15); padding: 11px 20px; text-align: center; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #6abf8a; }
+.topbar span { color: rgba(255,255,255,0.25); margin: 0 10px; }
 
 /* ── HERO ── */
-.hero { padding: 72px 24px 64px; max-width: 1140px; margin: 0 auto; display: grid; grid-template-columns: 1fr 440px; gap: 64px; align-items: center; }
+.hero { max-width: 1160px; margin: 0 auto; padding: 76px 28px 68px; display: grid; grid-template-columns: 1fr 420px; gap: 72px; align-items: start; }
 
-.hero-left .section-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #6abf8a; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
-.section-tag::before { content: ''; display: block; width: 28px; height: 1px; background: #6abf8a; }
+.tag { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #6abf8a; display: flex; align-items: center; gap: 10px; margin-bottom: 22px; }
+.tag::before { content: ''; width: 28px; height: 1px; background: #6abf8a; display: block; }
 
-.hero-left h1 { font-family: "Playfair Display", Georgia, serif; font-size: clamp(40px, 5.5vw, 68px); font-weight: 800; line-height: 1.1; color: #fff; margin-bottom: 24px; }
-.hero-left h1 em { font-style: italic; color: #6abf8a; }
+.hero h1 { font-family: "Playfair Display", Georgia, serif; font-size: clamp(38px, 5.5vw, 66px); font-weight: 800; line-height: 1.1; color: #fff; margin-bottom: 26px; }
+.hero h1 em { font-style: italic; color: #6abf8a; }
 
-.hero-left .hero-sub { font-size: 18px; color: rgba(255,255,255,0.62); line-height: 1.75; max-width: 520px; margin-bottom: 36px; }
+.hero-body { font-size: 17px; color: rgba(255,255,255,0.58); line-height: 1.8; max-width: 510px; margin-bottom: 38px; }
 
-.social-proof { display: inline-flex; align-items: center; gap: 12px; background: rgba(106,191,138,0.08); border: 1px solid rgba(106,191,138,0.2); border-radius: 100px; padding: 10px 18px; }
-.proof-faces { display: flex; margin-right: 4px; }
-.proof-face { width: 28px; height: 28px; border-radius: 50%; background: #1b4232; border: 2px solid #0a1a0f; margin-left: -8px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: #6abf8a; overflow: hidden; }
-.proof-face:first-child { margin-left: 0; }
-.proof-text { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.8); }
-.proof-text strong { color: #fff; }
-.proof-star { color: #6abf8a; font-size: 12px; margin-left: 2px; }
+.proof-chip { display: inline-flex; align-items: center; gap: 12px; background: rgba(106,191,138,0.07); border: 1px solid rgba(106,191,138,0.18); border-radius: 100px; padding: 10px 18px; }
+.proof-avatars { display: flex; }
+.avatar { width: 28px; height: 28px; border-radius: 50%; border: 2px solid #0a1a0f; margin-left: -7px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 800; color: #6abf8a; background: #1b4232; flex-shrink: 0; }
+.avatar:first-child { margin-left: 0; }
+.proof-text { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.75); }
 
-/* ── PRICING CARD ── */
-.pricing-card { background: #0f2318; border: 1px solid rgba(106,191,138,0.25); border-radius: 20px; padding: 36px 32px 32px; position: sticky; top: 24px; }
-
-.card-label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #6abf8a; margin-bottom: 10px; }
-.card-price-display { font-family: "Playfair Display", Georgia, serif; font-size: 42px; font-weight: 800; color: #fff; margin-bottom: 4px; line-height: 1; }
-.card-price-display span { font-size: 18px; font-weight: 600; color: rgba(255,255,255,0.5); font-family: Inter, sans-serif; }
-.card-price-range { font-size: 12px; color: rgba(255,255,255,0.35); margin-bottom: 24px; }
+/* CARD */
+.card { background: #0d1f14; border: 1px solid rgba(106,191,138,0.22); border-radius: 18px; padding: 32px 28px; position: sticky; top: 20px; }
+.card-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #6abf8a; margin-bottom: 10px; }
+.card-price { font-family: "Playfair Display", Georgia, serif; font-size: 44px; font-weight: 800; color: #fff; line-height: 1; margin-bottom: 4px; }
+.card-price sub { font-size: 17px; font-weight: 600; font-family: Inter, sans-serif; color: rgba(255,255,255,0.4); vertical-align: baseline; }
+.card-range { font-size: 12px; color: rgba(255,255,255,0.28); margin-bottom: 22px; }
 
 /* SLIDER */
-.slider-wrap { margin-bottom: 8px; }
-.slider-labels { display: flex; justify-content: space-between; font-size: 11px; color: rgba(255,255,255,0.35); margin-bottom: 8px; font-weight: 600; }
-input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 4px; border-radius: 4px; background: linear-gradient(to right, #6abf8a var(--pct, 0%), rgba(255,255,255,0.12) var(--pct, 0%)); outline: none; cursor: pointer; margin-bottom: 6px; }
-input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 22px; height: 22px; border-radius: 50%; background: #fff; border: 3px solid #6abf8a; box-shadow: 0 2px 10px rgba(106,191,138,0.4); cursor: pointer; transition: transform 0.1s; }
-input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.15); }
-input[type=range]::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; background: #fff; border: 3px solid #6abf8a; box-shadow: 0 2px 10px rgba(106,191,138,0.4); cursor: pointer; }
-.slider-note { font-size: 11px; color: rgba(255,255,255,0.3); text-align: center; margin-bottom: 20px; }
+.slider-labels { display: flex; justify-content: space-between; font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.3); margin-bottom: 7px; }
+input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 4px; border-radius: 4px; background: linear-gradient(to right, #6abf8a var(--pct,0%), rgba(255,255,255,0.1) var(--pct,0%)); outline: none; cursor: pointer; display: block; margin-bottom: 5px; }
+input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; border-radius: 50%; background: #fff; border: 3px solid #6abf8a; box-shadow: 0 2px 12px rgba(106,191,138,0.45); cursor: pointer; }
+input[type=range]::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; background: #fff; border: 3px solid #6abf8a; cursor: pointer; }
+.slider-hint { font-size: 11px; color: rgba(255,255,255,0.25); text-align: center; margin-bottom: 20px; }
 
-/* WHY BOX */
-.why-box { background: rgba(255,255,255,0.04); border-radius: 10px; padding: 16px; margin-bottom: 22px; }
+.why-box { background: rgba(255,255,255,0.035); border-radius: 10px; padding: 16px; margin-bottom: 20px; }
 .why-label { font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #6abf8a; margin-bottom: 10px; }
-.why-box p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.65; }
-.why-box p strong { color: rgba(255,255,255,0.9); }
+.why-box p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.7; }
 .why-box p + p { margin-top: 8px; }
+.why-box strong { color: rgba(255,255,255,0.88); }
 
-.join-btn { display: block; width: 100%; background: linear-gradient(135deg, #4ab87a, #2d7a4a); color: #fff; font-size: 17px; font-weight: 800; padding: 20px; border-radius: 12px; text-align: center; text-decoration: none; box-shadow: 0 6px 28px rgba(74,184,122,0.35); margin-bottom: 16px; border: none; cursor: pointer; transition: opacity 0.15s; }
-.join-btn:hover { opacity: 0.9; }
+.join-btn { display: block; width: 100%; background: linear-gradient(135deg, #4ab87a, #2d7a4a); color: #fff; font-size: 17px; font-weight: 800; padding: 20px; border-radius: 11px; text-align: center; text-decoration: none; box-shadow: 0 6px 28px rgba(74,184,122,0.32); margin-bottom: 14px; border: none; cursor: pointer; }
 
-.card-checks { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 22px; }
-.card-check { display: flex; align-items: center; gap: 6px; font-size: 12px; color: rgba(255,255,255,0.5); }
-.card-check svg { width: 14px; height: 14px; flex-shrink: 0; color: #6abf8a; }
+.mini-checks { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; margin-bottom: 20px; }
+.mini-check { display: flex; align-items: center; gap: 6px; font-size: 11px; color: rgba(255,255,255,0.42); }
+.mini-check svg { width: 13px; height: 13px; flex-shrink: 0; stroke: #6abf8a; }
 
-.card-badges { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; border-top: 1px solid rgba(255,255,255,0.07); padding-top: 18px; }
-.badge-item { text-align: center; }
-.badge-item svg { width: 20px; height: 20px; color: rgba(255,255,255,0.3); margin-bottom: 5px; }
-.badge-item p { font-size: 9px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.3); line-height: 1.4; }
+.card-trust { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 16px; }
+.trust-item { text-align: center; }
+.trust-item svg { width: 18px; height: 18px; stroke: rgba(255,255,255,0.22); display: block; margin: 0 auto 4px; }
+.trust-item p { font-size: 9px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: rgba(255,255,255,0.22); line-height: 1.4; }
 
-/* ── SECTION UTILITY ── */
-.section-tag-center { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #6abf8a; text-align: center; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 12px; }
-.section-tag-center::before, .section-tag-center::after { content: ''; display: block; width: 28px; height: 1px; background: rgba(106,191,138,0.4); }
+/* ── DIVIDER ── */
+.stripe { border-top: 1px solid rgba(106,191,138,0.1); border-bottom: 1px solid rgba(106,191,138,0.1); background: #0c1f14; }
 
 /* ── WHAT'S INSIDE ── */
-.inside { background: #0c1f14; border-top: 1px solid rgba(106,191,138,0.1); border-bottom: 1px solid rgba(106,191,138,0.1); padding: 80px 24px; }
-.inside-inner { max-width: 1000px; margin: 0 auto; }
+.inside { padding: 80px 28px; max-width: 1060px; margin: 0 auto; }
+.tag-center { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #6abf8a; text-align: center; display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 20px; }
+.tag-center::before,.tag-center::after { content:''; width:28px; height:1px; background:rgba(106,191,138,0.35); display:block; }
 
-.inside h2 { font-family: "Playfair Display", Georgia, serif; font-size: clamp(36px, 5vw, 60px); font-weight: 800; color: #fff; line-height: 1.15; margin-bottom: 12px; }
+.inside h2 { font-family: "Playfair Display", Georgia, serif; font-size: clamp(34px, 5vw, 58px); font-weight: 800; color: #fff; line-height: 1.12; margin-bottom: 16px; }
 .inside h2 em { font-style: italic; color: #6abf8a; }
-.inside-sub { font-size: 16px; color: rgba(255,255,255,0.45); font-style: italic; max-width: 560px; margin-bottom: 48px; line-height: 1.7; border-left: 2px solid rgba(106,191,138,0.3); padding-left: 16px; }
+.inside-pull { font-size: 16px; color: rgba(255,255,255,0.42); font-style: italic; line-height: 1.75; border-left: 2px solid rgba(106,191,138,0.25); padding-left: 18px; max-width: 600px; margin-bottom: 48px; }
 
-.stats-row { display: flex; gap: 24px; margin-bottom: 52px; flex-wrap: wrap; }
-.stat-chip { background: rgba(255,255,255,0.04); border: 1px solid rgba(106,191,138,0.15); border-radius: 10px; padding: 14px 20px; display: flex; flex-direction: column; gap: 2px; }
-.stat-chip strong { font-size: 18px; font-weight: 800; color: #fff; }
-.stat-chip span { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+.stats { display: flex; gap: 16px; margin-bottom: 52px; flex-wrap: wrap; }
+.stat { background: rgba(255,255,255,0.03); border: 1px solid rgba(106,191,138,0.12); border-radius: 10px; padding: 14px 20px; }
+.stat strong { font-size: 18px; font-weight: 800; color: #fff; display: block; margin-bottom: 2px; }
+.stat span { font-size: 10px; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
 
-/* FEATURED ITEMS */
-.featured-items { display: flex; flex-direction: column; gap: 2px; margin-bottom: 40px; }
-.feat-item { display: grid; grid-template-columns: 200px 1fr auto; align-items: center; gap: 24px; background: rgba(255,255,255,0.03); border: 1px solid rgba(106,191,138,0.1); border-radius: 12px; padding: 20px 24px; transition: border-color 0.2s; }
-.feat-item:hover { border-color: rgba(106,191,138,0.25); }
-.feat-img { width: 200px; height: 110px; border-radius: 8px; background: #1b4232; overflow: hidden; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.15); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; flex-shrink: 0; }
-.feat-num { font-size: 28px; font-weight: 900; color: rgba(106,191,138,0.3); font-family: "Playfair Display", Georgia, serif; margin-bottom: 4px; }
-.feat-title { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 6px; }
-.feat-desc { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.6; }
-.feat-badge { background: rgba(106,191,138,0.12); border: 1px solid rgba(106,191,138,0.25); border-radius: 100px; padding: 5px 12px; font-size: 11px; font-weight: 700; color: #6abf8a; white-space: nowrap; }
-.incl-badge { background: rgba(106,191,138,0.12); border: 1px solid rgba(106,191,138,0.25); border-radius: 100px; padding: 5px 12px; font-size: 11px; font-weight: 700; color: #6abf8a; white-space: nowrap; display: flex; align-items: center; gap: 5px; }
-.incl-badge::before { content: '✓'; }
+/* FEATURED */
+.feat-list { display: flex; flex-direction: column; gap: 3px; margin-bottom: 40px; }
+.feat { display: grid; grid-template-columns: 1fr auto; align-items: start; gap: 20px; background: rgba(255,255,255,0.025); border: 1px solid rgba(106,191,138,0.1); border-radius: 12px; padding: 22px 26px; }
+.feat-n { font-size: 30px; font-weight: 900; font-family: "Playfair Display", Georgia, serif; color: rgba(106,191,138,0.25); margin-bottom: 4px; line-height: 1; }
+.feat-title { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 7px; }
+.feat-desc { font-size: 14px; color: rgba(255,255,255,0.48); line-height: 1.65; }
+.incl { background: rgba(106,191,138,0.1); border: 1px solid rgba(106,191,138,0.22); border-radius: 100px; padding: 5px 12px; font-size: 11px; font-weight: 700; color: #6abf8a; white-space: nowrap; display: flex; align-items: center; gap: 4px; flex-shrink: 0; margin-top: 4px; }
+.incl::before { content: '✓'; }
 
-/* LIBRARY GRID */
-.lib-label { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
-.lib-label::before { content: '◈'; color: rgba(106,191,138,0.4); }
-.lib-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 40px; }
-.lib-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(106,191,138,0.08); border-radius: 10px; padding: 18px 20px; }
-.lib-num { font-size: 13px; font-weight: 700; color: rgba(106,191,138,0.5); margin-bottom: 6px; }
-.lib-title { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 4px; }
-.lib-desc { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.6; }
-.lib-item .incl-badge { margin-top: 12px; display: inline-flex; font-size: 10px; padding: 4px 10px; }
+/* LIBRARY */
+.sub-label { font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.sub-label::before { content: '◈'; color: rgba(106,191,138,0.35); }
+.lib { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin-bottom: 40px; }
+.lib-card { background: rgba(255,255,255,0.025); border: 1px solid rgba(106,191,138,0.08); border-radius: 10px; padding: 20px; }
+.lib-n { font-size: 12px; font-weight: 700; color: rgba(106,191,138,0.4); margin-bottom: 7px; }
+.lib-title { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 5px; }
+.lib-desc { font-size: 13px; color: rgba(255,255,255,0.42); line-height: 1.6; margin-bottom: 12px; }
+.lib-card .incl { display: inline-flex; font-size: 10px; padding: 3px 10px; }
 
-/* PRICELESS ROW */
-.priceless-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; margin-bottom: 48px; }
-.priceless-item { background: rgba(255,255,255,0.02); border: 1px solid rgba(106,191,138,0.08); border-radius: 10px; padding: 20px; }
-.priceless-num { font-size: 11px; font-weight: 700; color: rgba(106,191,138,0.4); margin-bottom: 8px; }
-.priceless-title { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 6px; }
-.priceless-desc { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.6; margin-bottom: 12px; }
-.priceless-badge { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #6abf8a; }
+/* PRICELESS */
+.pless { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3px; margin-bottom: 44px; }
+.pless-card { background: rgba(255,255,255,0.015); border: 1px solid rgba(106,191,138,0.07); border-radius: 10px; padding: 20px; }
+.pless-n { font-size: 11px; font-weight: 700; color: rgba(106,191,138,0.35); margin-bottom: 8px; }
+.pless-title { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+.pless-desc { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.6; margin-bottom: 12px; }
+.pless-badge { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #6abf8a; }
 
 /* VALUE STACK */
-.value-stack { background: rgba(106,191,138,0.05); border: 1px solid rgba(106,191,138,0.15); border-radius: 16px; padding: 28px 32px; }
-.value-label { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 20px; }
-.value-row { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
-.value-row:last-of-type { border-bottom: none; }
-.value-row-name { font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.75); }
-.value-row-sub { font-size: 12px; color: rgba(255,255,255,0.3); }
-.value-row-price { font-size: 15px; font-weight: 700; color: #6abf8a; }
-.value-row-price.priceless { color: rgba(255,255,255,0.3); font-style: italic; font-size: 13px; }
-.value-total { background: rgba(106,191,138,0.08); border-radius: 10px; padding: 20px 24px; margin-top: 16px; text-align: center; }
-.value-total-label { font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 6px; }
-.value-total-num { font-family: "Playfair Display", Georgia, serif; font-size: 52px; font-weight: 800; color: #6abf8a; line-height: 1; margin-bottom: 4px; }
-.value-total-sub { font-size: 12px; color: rgba(255,255,255,0.3); }
+.val-stack { background: rgba(106,191,138,0.04); border: 1px solid rgba(106,191,138,0.14); border-radius: 14px; padding: 28px 30px; }
+.val-hd { font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 18px; }
+.val-row { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+.val-row:last-of-type { border-bottom: none; }
+.val-name { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.7); }
+.val-sub { font-size: 11px; color: rgba(255,255,255,0.25); }
+.val-price { font-size: 14px; font-weight: 700; color: #6abf8a; }
+.val-price.pl { color: rgba(255,255,255,0.25); font-style: italic; font-size: 12px; }
+.val-total-box { background: rgba(106,191,138,0.07); border-radius: 10px; padding: 20px; margin-top: 16px; text-align: center; }
+.val-total-label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 6px; }
+.val-total-num { font-family: "Playfair Display", Georgia, serif; font-size: 50px; font-weight: 800; color: #6abf8a; line-height: 1; margin-bottom: 4px; }
+.val-total-sub { font-size: 12px; color: rgba(255,255,255,0.25); }
+
+/* ── THREE MOVEMENTS ── */
+.movements { padding: 80px 28px; max-width: 1060px; margin: 0 auto; }
+.movements-pull { font-size: 15px; font-style: italic; color: rgba(255,255,255,0.32); text-align: center; margin-bottom: 16px; }
+.movements h2 { font-family: "Playfair Display", Georgia, serif; font-size: clamp(32px, 4.5vw, 52px); font-weight: 800; color: #fff; text-align: center; line-height: 1.15; margin-bottom: 14px; }
+.movements h2 em { font-style: italic; color: #6abf8a; }
+.movements-sub { text-align: center; font-size: 15px; color: rgba(255,255,255,0.42); line-height: 1.7; max-width: 560px; margin: 0 auto 52px; }
+.mv-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3px; }
+.mv-card { background: rgba(255,255,255,0.025); border: 1px solid rgba(106,191,138,0.1); border-radius: 14px; padding: 28px 24px; }
+.mv-card.highlight { border-color: rgba(106,191,138,0.28); background: rgba(106,191,138,0.05); }
+.mv-icon { width: 46px; height: 46px; border-radius: 50%; background: rgba(106,191,138,0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+.mv-icon svg { width: 22px; height: 22px; stroke: #6abf8a; }
+.mv-title { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 12px; }
+.mv-desc { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.7; margin-bottom: 14px; }
+.mv-note { font-size: 12px; font-style: italic; color: rgba(255,255,255,0.28); line-height: 1.6; }
+.mv-badge { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #6abf8a; margin-top: 14px; display: block; }
+
+/* ── KUSUDI SECTION ── */
+.kusudi-section { background: #0c1f14; border-top: 1px solid rgba(106,191,138,0.1); border-bottom: 1px solid rgba(106,191,138,0.1); padding: 80px 28px; }
+.kusudi-inner { max-width: 1060px; margin: 0 auto; }
+.kus-stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3px; margin-bottom: 56px; }
+.kus-stat { background: rgba(255,255,255,0.03); border: 1px solid rgba(106,191,138,0.1); border-radius: 10px; padding: 22px; text-align: center; }
+.kus-stat strong { font-family: "Playfair Display", Georgia, serif; font-size: 32px; font-weight: 800; color: #6abf8a; display: block; margin-bottom: 4px; }
+.kus-stat span { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+.kus-split { display: grid; grid-template-columns: 340px 1fr; gap: 60px; align-items: center; }
+.kus-photo { width: 340px; height: 400px; border-radius: 14px; background: #1b4232; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.kus-photo img { width: 100%; height: 100%; object-fit: cover; border-radius: 14px; }
+.photo-ph { width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:rgba(255,255,255,0.12);font-size:12px;font-weight:600;text-align:center;padding:20px; }
+.kus-text .tag { margin-bottom: 16px; }
+.kus-text h2 { font-family: "Playfair Display", Georgia, serif; font-size: clamp(28px, 3.5vw, 42px); font-weight: 800; color: #fff; line-height: 1.2; margin-bottom: 18px; }
+.kus-text h2 em { font-style: italic; color: #6abf8a; }
+.kus-text p { font-size: 16px; color: rgba(255,255,255,0.55); line-height: 1.8; margin-bottom: 22px; }
+.kus-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 30px; }
+.kus-tag { background: rgba(106,191,138,0.08); border: 1px solid rgba(106,191,138,0.2); border-radius: 100px; padding: 6px 14px; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.6); display: flex; align-items: center; gap: 5px; }
+.kus-tag::before { content: '✓'; color: #6abf8a; font-size: 10px; }
+.kus-quote { border-left: 2px solid rgba(106,191,138,0.3); padding-left: 18px; }
+.kus-quote p { font-size: 17px; font-style: italic; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 8px; font-family: "Playfair Display", Georgia, serif; }
+.kus-quote cite { font-size: 12px; font-style: normal; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
 
 /* ── WHO IT'S FOR ── */
-.for-section { padding: 80px 24px; max-width: 900px; margin: 0 auto; }
-.for-section h2 { font-family: "Playfair Display", Georgia, serif; font-size: clamp(34px, 5vw, 56px); font-weight: 800; line-height: 1.15; color: #fff; margin-bottom: 8px; }
-.for-section h2 em { display: block; font-style: italic; color: #6abf8a; }
-.for-divider { width: 48px; height: 2px; background: rgba(106,191,138,0.4); margin: 28px 0; }
-.for-block { border-left: 2px solid rgba(106,191,138,0.25); padding-left: 24px; margin-bottom: 40px; }
+.for-section { padding: 80px 28px; max-width: 900px; margin: 0 auto; }
+.for-section h2 { font-family: "Playfair Display", Georgia, serif; font-size: clamp(32px, 5vw, 54px); font-weight: 800; color: #fff; line-height: 1.12; margin-bottom: 36px; }
+.for-section h2 em { font-style: italic; color: #6abf8a; display: block; }
+.for-block { border-left: 2px solid rgba(106,191,138,0.2); padding-left: 24px; margin-bottom: 40px; }
 .for-block:last-child { margin-bottom: 0; }
-.for-block-label { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #6abf8a; margin-bottom: 10px; }
+.for-lbl { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #6abf8a; margin-bottom: 8px; }
 .for-block h3 { font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 12px; line-height: 1.35; }
-.for-block p { font-size: 16px; color: rgba(255,255,255,0.55); line-height: 1.8; }
-.for-block p strong { color: rgba(255,255,255,0.9); font-weight: 700; }
+.for-block p { font-size: 15px; color: rgba(255,255,255,0.52); line-height: 1.8; }
+.for-block p strong { color: rgba(255,255,255,0.88); font-weight: 700; }
 .for-block p em { font-style: italic; }
+.for-close { font-family: "Playfair Display", Georgia, serif; font-size: clamp(22px, 3.5vw, 34px); font-weight: 700; color: #fff; line-height: 1.3; margin-top: 52px; padding-top: 40px; border-top: 1px solid rgba(106,191,138,0.1); }
+.for-close em { font-style: italic; color: #6abf8a; }
 
-/* ── BOTTOM PRICING SECTION ── */
-.bottom-price { background: #0c1f14; border-top: 1px solid rgba(106,191,138,0.1); padding: 80px 24px 80px; text-align: center; }
-.bottom-price-inner { max-width: 680px; margin: 0 auto; }
-.bottom-price h2 { font-family: "Playfair Display", Georgia, serif; font-size: clamp(32px, 5vw, 52px); font-weight: 800; color: #fff; line-height: 1.15; margin-bottom: 16px; }
-.bottom-price h2 em { font-style: italic; color: #6abf8a; }
-.bottom-price p { font-size: 17px; color: rgba(255,255,255,0.5); line-height: 1.75; margin-bottom: 44px; max-width: 520px; margin-left: auto; margin-right: auto; }
+/* ── TESTIMONIALS ── */
+.testimonials { background: #0c1f14; border-top: 1px solid rgba(106,191,138,0.1); padding: 80px 28px; }
+.testi-inner { max-width: 1060px; margin: 0 auto; }
+.testi-group { margin-bottom: 52px; }
+.testi-group:last-child { margin-bottom: 0; }
+.testi-group-label { font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #6abf8a; text-align: center; margin-bottom: 6px; }
+.testi-group-sub { font-size: 14px; font-style: italic; color: rgba(255,255,255,0.3); text-align: center; margin-bottom: 24px; }
+.testi-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3px; }
+.testi-row.two { grid-template-columns: 1fr 1fr; }
+.testi-card { background: rgba(255,255,255,0.025); border: 1px solid rgba(106,191,138,0.08); border-radius: 12px; padding: 24px; position: relative; }
+.testi-stars { color: #6abf8a; font-size: 13px; letter-spacing: 2px; margin-bottom: 12px; display: block; }
+.testi-quote-mark { position: absolute; top: 20px; right: 20px; font-size: 28px; color: rgba(106,191,138,0.12); font-family: Georgia, serif; line-height: 1; }
+.testi-text { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.75; margin-bottom: 18px; }
+.testi-author { display: flex; align-items: center; gap: 10px; }
+.testi-av { width: 32px; height: 32px; border-radius: 50%; background: rgba(106,191,138,0.15); border: 1px solid rgba(106,191,138,0.2); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: #6abf8a; flex-shrink: 0; }
+.testi-name { font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.75); }
 
-.bottom-slider-card { background: #0f2318; border: 1px solid rgba(106,191,138,0.25); border-radius: 20px; padding: 40px; max-width: 520px; margin: 0 auto 32px; }
-.bottom-price-display { font-family: "Playfair Display", Georgia, serif; font-size: 56px; font-weight: 800; color: #fff; margin-bottom: 4px; line-height: 1; }
-.bottom-price-display span { font-size: 22px; font-weight: 600; color: rgba(255,255,255,0.4); font-family: Inter, sans-serif; }
-.bottom-price-sub { font-size: 13px; color: rgba(255,255,255,0.3); margin-bottom: 28px; }
-
-.bottom-join-btn { display: inline-block; background: linear-gradient(135deg, #4ab87a, #2d7a4a); color: #fff; font-size: 18px; font-weight: 800; padding: 22px 52px; border-radius: 12px; text-decoration: none; box-shadow: 0 8px 32px rgba(74,184,122,0.38); max-width: 480px; width: 100%; border: none; cursor: pointer; transition: opacity 0.15s; }
-.bottom-join-btn:hover { opacity: 0.9; }
-.bottom-note { font-size: 12px; color: rgba(255,255,255,0.2); margin-top: 14px; }
+/* ── BOTTOM CTA ── */
+.bottom-cta { padding: 80px 28px; text-align: center; }
+.bottom-cta h2 { font-family: "Playfair Display", Georgia, serif; font-size: clamp(30px, 5vw, 52px); font-weight: 800; color: #fff; line-height: 1.15; margin-bottom: 16px; }
+.bottom-cta h2 em { font-style: italic; color: #6abf8a; }
+.bottom-cta p { font-size: 16px; color: rgba(255,255,255,0.45); line-height: 1.75; max-width: 480px; margin: 0 auto 44px; }
+.bottom-card { background: #0d1f14; border: 1px solid rgba(106,191,138,0.22); border-radius: 18px; padding: 36px; max-width: 500px; margin: 0 auto 24px; }
+.bottom-price { font-family: "Playfair Display", Georgia, serif; font-size: 54px; font-weight: 800; color: #fff; line-height: 1; margin-bottom: 4px; }
+.bottom-price sub { font-size: 20px; font-weight: 500; font-family: Inter, sans-serif; color: rgba(255,255,255,0.38); vertical-align: baseline; }
+.bottom-range { font-size: 12px; color: rgba(255,255,255,0.25); margin-bottom: 24px; }
+.bottom-btn { display: inline-block; background: linear-gradient(135deg, #4ab87a, #2d7a4a); color: #fff; font-size: 18px; font-weight: 800; padding: 22px 48px; border-radius: 12px; text-decoration: none; box-shadow: 0 8px 32px rgba(74,184,122,0.35); width: 100%; border: none; cursor: pointer; text-align: center; margin-top: 4px; }
+.bottom-note { font-size: 12px; color: rgba(255,255,255,0.18); margin-top: 14px; }
 
 /* ── FOOTER ── */
-footer { border-top: 1px solid rgba(106,191,138,0.1); padding: 36px 24px; text-align: center; }
+footer { border-top: 1px solid rgba(106,191,138,0.1); padding: 34px 24px; text-align: center; }
 .footer-logo { font-family: "Playfair Display", Georgia, serif; font-size: 20px; font-weight: 700; color: #6abf8a; margin-bottom: 6px; font-style: italic; }
-footer p { font-size: 12px; color: rgba(255,255,255,0.18); }
+footer p { font-size: 12px; color: rgba(255,255,255,0.16); }
 
 /* ── RESPONSIVE ── */
-@media (max-width: 900px) {
+@media (max-width: 960px) {
   .hero { grid-template-columns: 1fr; gap: 40px; padding: 48px 20px 40px; }
-  .pricing-card { position: static; }
-  .inside { padding: 56px 20px; }
-  .feat-item { grid-template-columns: 1fr; }
-  .feat-img { width: 100%; height: 160px; }
-  .lib-grid { grid-template-columns: 1fr; }
-  .priceless-grid { grid-template-columns: 1fr; }
-  .for-section { padding: 56px 20px; }
-  .bottom-price { padding: 56px 20px; }
-  .bottom-slider-card { padding: 28px 22px; }
+  .card { position: static; }
+  .kus-split { grid-template-columns: 1fr; }
+  .kus-photo { width: 100%; height: 280px; }
+  .mv-grid { grid-template-columns: 1fr; }
+  .lib { grid-template-columns: 1fr; }
+  .pless { grid-template-columns: 1fr; }
+  .testi-row { grid-template-columns: 1fr; }
+  .testi-row.two { grid-template-columns: 1fr; }
+  .kus-stats { grid-template-columns: 1fr; }
+  .inside, .movements, .kusudi-inner, .for-section, .testi-inner { padding-left: 20px; padding-right: 20px; }
+  .inside { padding: 52px 20px; }
+  .movements { padding: 52px 20px; }
+  .kusudi-section { padding: 52px 20px; }
+  .for-section { padding: 52px 20px; }
+  .testimonials { padding: 52px 20px; }
+  .bottom-cta { padding: 52px 20px; }
 }
-@media (max-width: 500px) {
-  .hero-left h1 { font-size: 34px; }
-  .stats-row { flex-direction: column; }
-  .value-stack { padding: 20px; }
-  .card-badges { grid-template-columns: 1fr 1fr 1fr; }
+@media (max-width: 520px) {
+  .hero h1 { font-size: 34px; }
+  .stats { flex-direction: column; }
+  .feat { grid-template-columns: 1fr; }
+  .bottom-card { padding: 24px 18px; }
 }
 </style>
 </head>
 <body>
-<div class="wop-wrap">
+<div class="wop">
 
-<!-- ANNOUNCEMENT BAR -->
-<div class="announce">
-  Life of Purpose Community <span>·</span> Pay What Reflects Where You Are <span>·</span> Cancel Anytime
-</div>
+<!-- TOP BAR -->
+<div class="topbar">World of Purpose Community <span>·</span> Pay What You Can <span>·</span> Cancel Anytime</div>
 
 <!-- HERO -->
-<section class="hero">
+<section>
+<div class="hero">
   <div class="hero-left">
-    <p class="section-tag">I · Life of Purpose Community</p>
-    <h1>Stop walking<br>your purpose<br><em>alone.</em></h1>
-    <p class="hero-sub">100+ hours of training. Mini-courses organized by topic. A community of people who aren't just talking about purpose — they're living it. Pay what reflects where you are right now.</p>
-    <div class="social-proof">
-      <div class="proof-faces">
-        <div class="proof-face">K</div>
-        <div class="proof-face">A</div>
-        <div class="proof-face">M</div>
-        <div class="proof-face">+</div>
+    <p class="tag">I · World of Purpose Community</p>
+    <h1>You've carried this calling long enough.<br><em>Alone.</em></h1>
+    <p class="hero-body">100+ hours of teaching. A growing library of training built around the things that actually matter — identity, calling, faith, purpose, and the life God designed specifically for you. And a community of people who aren't just talking about purpose. They're walking in it.</p>
+    <div class="proof-chip">
+      <div class="proof-avatars">
+        <div class="avatar">K</div>
+        <div class="avatar">A</div>
+        <div class="avatar">M</div>
+        <div class="avatar">+</div>
       </div>
-      <span class="proof-text"><strong>People walking in purpose</strong> · 5.0 <span class="proof-star">★</span></span>
+      <span class="proof-text">People walking in purpose &nbsp;·&nbsp; 5.0 ★</span>
     </div>
   </div>
 
-  <div class="pricing-card">
-    <p class="card-label">Pay What You Can</p>
-    <div class="card-price-display" id="heroPrice">$27 <span>/ month</span></div>
-    <p class="card-price-range">Sliding scale · $27 – $97</p>
-
-    <div class="slider-wrap">
-      <div class="slider-labels"><span>$27</span><span>$97</span></div>
-      <input type="range" id="heroSlider" min="27" max="97" step="10" value="27" oninput="updatePrice(this.value)">
-      <p class="slider-note">Slide to choose your monthly contribution</p>
-    </div>
+  <div class="card">
+    <p class="card-eyebrow">Pay What You Can</p>
+    <div class="card-price" id="heroPrice">$27 <sub>/ month</sub></div>
+    <p class="card-range">Sliding scale · $27 – $97</p>
+    <div class="slider-labels"><span>$27</span><span>$97</span></div>
+    <input type="range" id="heroSlider" min="27" max="97" step="10" value="27" oninput="updateHero(this.value)">
+    <p class="slider-hint">Slide to choose your monthly contribution</p>
 
     <div class="why-box">
       <p class="why-label">Why Pay What You Can?</p>
-      <p><strong>The room is for whoever is called to it.</strong> Money shouldn't be what keeps anyone out of their purpose.</p>
-      <p>Your contribution is a <strong>statement of commitment</strong>. Whether it's $27 or $97, what matters most is that <strong>you show up</strong>. This is generosity in practice.</p>
+      <p><strong>Your calling isn't reserved for those who can afford it.</strong> It's for everyone God placed it in. Money shouldn't be the wall between you and walking in yours.</p>
+      <p>Your contribution is a <strong>declaration of commitment</strong>. At $27 or $97, what you get is the same. What changes is what you declare about how serious you are.</p>
     </div>
 
-    <a href="https://www.fanbasis.com/agency-checkout/world-of-purpose/COMMUNITY_LINK_HERE" id="heroBtn" class="join-btn" target="_blank" rel="noopener">
-      Join the Community &rarr;
-    </a>
+    <a href="https://www.fanbasis.com/agency-checkout/world-of-purpose/COMMUNITY_LINK_HERE" id="heroBtn" class="join-btn">Join World of Purpose &rarr;</a>
 
-    <div class="card-checks">
-      <div class="card-check">
-        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="12 3 5.5 10 2 6.5"/></svg>
-        Cancel anytime
-      </div>
-      <div class="card-check">
-        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="12 3 5.5 10 2 6.5"/></svg>
-        Pause anytime
-      </div>
-      <div class="card-check">
-        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="12 3 5.5 10 2 6.5"/></svg>
-        No contracts
-      </div>
-      <div class="card-check">
-        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="12 3 5.5 10 2 6.5"/></svg>
-        Instant access
-      </div>
+    <div class="mini-checks">
+      <div class="mini-check"><svg viewBox="0 0 14 14" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="12 3 5.5 10 2 6.5"/></svg>Cancel anytime</div>
+      <div class="mini-check"><svg viewBox="0 0 14 14" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="12 3 5.5 10 2 6.5"/></svg>Pause anytime</div>
+      <div class="mini-check"><svg viewBox="0 0 14 14" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="12 3 5.5 10 2 6.5"/></svg>No contracts</div>
+      <div class="mini-check"><svg viewBox="0 0 14 14" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="12 3 5.5 10 2 6.5"/></svg>Instant access</div>
     </div>
 
-    <div class="card-badges">
-      <div class="badge-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-        <p>256-Bit SSL</p>
+    <div class="card-trust">
+      <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><p>256-Bit SSL</p></div>
+      <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><p>Secure Payment</p></div>
+      <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><p>Cancel Anytime</p></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- WHAT'S INSIDE -->
+<div class="stripe">
+<div class="inside">
+  <p class="tag-center">II · What's Inside</p>
+  <h2>Everything built<br>for one thing.<br><em>Walking in your purpose.</em></h2>
+  <p class="inside-pull">"The content is one part of this. The community — the people, the accountability, the presence of others who take their calling as seriously as you take yours — that's what you actually came for."</p>
+
+  <div class="stats">
+    <div class="stat"><strong>100+</strong><span>Hours of Teaching</span></div>
+    <div class="stat"><strong>Instant</strong><span>Access the Moment You Join</span></div>
+    <div class="stat"><strong>$2,000+</strong><span>Stated First-Month Value</span></div>
+  </div>
+
+  <div class="feat-list">
+    <div class="feat">
+      <div>
+        <p class="feat-n">01</p>
+        <p class="feat-title">Path to Purpose — 12-Week Program</p>
+        <p class="feat-desc">The signature program. Twelve weeks that take you from knowing something is in you to understanding exactly what it is — and how to walk in it. Every lesson. Every exercise. Complete access the moment you join.</p>
       </div>
-      <div class="badge-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <p>Secure Payment</p>
+      <span class="incl">Included</span>
+    </div>
+    <div class="feat">
+      <div>
+        <p class="feat-n">02</p>
+        <p class="feat-title">Topic-Based Training Library</p>
+        <p class="feat-desc">100+ hours of Kusudi's best teaching organized by what matters: identity, calling, fear, faith, relationships, money, legacy, and more. Self-paced. Searchable. Built so you can go exactly where you need to go right now.</p>
       </div>
-      <div class="badge-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        <p>Cancel Anytime</p>
-      </div>
+      <span class="incl">Included</span>
+    </div>
+  </div>
+
+  <p class="sub-label">Bonus Lessons</p>
+  <div class="lib">
+    <div class="lib-card">
+      <p class="lib-n">03</p>
+      <p class="lib-title">Becoming Intentional</p>
+      <p class="lib-desc">Stop letting your days decide your life. How to design your hours around your calling — not squeeze your calling into whatever time is left over.</p>
+      <span class="incl">Included</span>
+    </div>
+    <div class="lib-card">
+      <p class="lib-n">04</p>
+      <p class="lib-title">Becoming Aware</p>
+      <p class="lib-desc">The inner work that makes everything else land. You can't step fully into what you can't see. Awareness is where real transformation begins.</p>
+      <span class="incl">Included</span>
+    </div>
+    <div class="lib-card">
+      <p class="lib-n">05</p>
+      <p class="lib-title">3-Step Spiritual Creation</p>
+      <p class="lib-desc">How to build with your spirit, not just your strategy. The difference between what lasts and what doesn't isn't hustle — it's alignment.</p>
+      <span class="incl">Included</span>
+    </div>
+    <div class="lib-card">
+      <p class="lib-n">06</p>
+      <p class="lib-title">Turning Purpose into Profits</p>
+      <p class="lib-desc">4-part training. Practical, step-by-step, and real. How to generate your first $10 to $1,000 from what God specifically placed in you.</p>
+      <span class="incl">Included</span>
+    </div>
+  </div>
+
+  <p class="sub-label">The Room</p>
+  <div class="pless">
+    <div class="pless-card">
+      <p class="pless-n">07</p>
+      <p class="pless-title">The Community</p>
+      <p class="pless-desc">People serious about their calling — not just consuming content but actually doing the work. Iron sharpening iron. Every day.</p>
+      <p class="pless-badge">Priceless</p>
+    </div>
+    <div class="pless-card">
+      <p class="pless-n">08</p>
+      <p class="pless-title">New Training Added Regularly</p>
+      <p class="pless-desc">This isn't a frozen library. New teaching drops as Kusudi creates. You grow. The library grows with you.</p>
+      <p class="pless-badge">Priceless</p>
+    </div>
+    <div class="pless-card">
+      <p class="pless-n">09</p>
+      <p class="pless-title">Priority Access</p>
+      <p class="pless-desc">New offerings, new content, new courses — community members get them first. Always.</p>
+      <p class="pless-badge">Priceless</p>
+    </div>
+  </div>
+
+  <div class="val-stack">
+    <p class="val-hd">Total First-Month Value</p>
+    <div class="val-row"><div><p class="val-name">Training Library</p><p class="val-sub">100+ hours, topic-organized</p></div><p class="val-price">$1,200</p></div>
+    <div class="val-row"><div><p class="val-name">Path to Purpose (12-Week Program)</p><p class="val-sub">Standalone price</p></div><p class="val-price">$297</p></div>
+    <div class="val-row"><div><p class="val-name">4 Bonus Lessons</p><p class="val-sub">Intentional, Aware, Spiritual Creation, Profits</p></div><p class="val-price">$400</p></div>
+    <div class="val-row"><div><p class="val-name">The Community</p><p class="val-sub">People, accountability, room</p></div><p class="val-price pl">Priceless</p></div>
+    <div class="val-total-box">
+      <p class="val-total-label">Stated First-Month Value</p>
+      <p class="val-total-num">$2,000<sup style="font-size:0.38em;vertical-align:top;margin-top:12px">+</sup></p>
+      <p class="val-total-sub">At the $27 floor</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- THREE MOVEMENTS -->
+<section class="movements">
+  <p class="tag-center">III · The Foundation</p>
+  <p class="movements-pull">"More than content. A container."</p>
+  <h2>Three movements.<br><em>One calling.</em></h2>
+  <p class="movements-sub">Purpose isn't a destination you arrive at. It's a direction you keep choosing — and the work deepens when you're not choosing it alone.</p>
+  <div class="mv-grid">
+    <div class="mv-card">
+      <div class="mv-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+      <p class="mv-title">Discover</p>
+      <p class="mv-desc">Most people have felt their purpose but never named it. Discovery is the work of finding language for what God placed in you — past the fear, past the noise, past what everyone else said you should be.</p>
+      <p class="mv-note">Possible alone. Takes most people years. Takes weeks here.</p>
+    </div>
+    <div class="mv-card">
+      <div class="mv-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+      <p class="mv-title">Develop</p>
+      <p class="mv-desc">Knowing your purpose and living it are two different things. Development is where what you know becomes who you are — where insight becomes identity, and identity becomes action.</p>
+      <p class="mv-note">Requires accountability. Requires someone who says "did you actually do it."</p>
+    </div>
+    <div class="mv-card highlight">
+      <div class="mv-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+      <p class="mv-title">Deploy</p>
+      <p class="mv-desc">Purpose that stays inside you serves no one. Deployment is where it meets the world — your family, your work, your community, your calling. This is what it was all for.</p>
+      <p class="mv-note">Nearly impossible alone. This is exactly what the community is built for.</p>
+      <span class="mv-badge">● Where it comes alive</span>
     </div>
   </div>
 </section>
 
-<!-- WHAT'S INSIDE -->
-<section class="inside">
-  <div class="inside-inner">
-    <p class="section-tag-center">II · What's Inside the Room</p>
-    <h2>Everything you need.<br><em>One price you choose.</em></h2>
-    <p class="inside-sub">The library is one part of the room. The room is what you're really joining — the people, the practice, the presence of others who are serious about walking in purpose.</p>
-
-    <div class="stats-row">
-      <div class="stat-chip">
-        <strong>100+</strong>
-        <span>Hours of Training</span>
-      </div>
-      <div class="stat-chip">
-        <strong>Instant</strong>
-        <span>Unlocks the Moment You Join</span>
-      </div>
-      <div class="stat-chip">
-        <strong>$2,000+</strong>
-        <span>Stated First-Month Value</span>
-      </div>
+<!-- KUSUDI -->
+<section class="kusudi-section">
+  <div class="kusudi-inner">
+    <p class="tag-center">IV · The Teacher</p>
+    <div class="kus-stats">
+      <div class="kus-stat"><strong>Monthly</strong><span>Live Sessions with Kusudi</span></div>
+      <div class="kus-stat"><strong>100+</strong><span>Hours of Teaching Available Now</span></div>
+      <div class="kus-stat"><strong>Always</strong><span>Recorded — Watch on Your Time</span></div>
     </div>
-
-    <!-- FEATURED ITEMS -->
-    <div class="featured-items">
-
-      <div class="feat-item">
-        <div class="feat-img">Path to Purpose</div>
-        <div>
-          <p class="feat-num">01</p>
-          <p class="feat-title">Path to Purpose — 12-Week Program</p>
-          <p class="feat-desc">The complete program. 12 weeks of deep inner work that takes you from unclear and unfulfilled to walking in your God-given calling. Every lesson, every exercise — included.</p>
+    <div class="kus-split">
+      <div class="kus-photo">
+        <!-- Replace with: <img src="KUSUDI_PHOTO_URL" alt="Kusudi"> -->
+        <div class="photo-ph">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="opacity:0.2;margin-bottom:10px"><circle cx="24" cy="18" r="10" stroke="#6abf8a" stroke-width="2"/><path d="M6 42c0-9.9 8.1-18 18-18s18 8.1 18 18" stroke="#6abf8a" stroke-width="2" stroke-linecap="round"/></svg>
+          Kusudi's photo<br>goes here
         </div>
-        <div class="incl-badge">Included</div>
       </div>
-
-      <div class="feat-item">
-        <div class="feat-img">Mini-Courses</div>
-        <div>
-          <p class="feat-num">02</p>
-          <p class="feat-title">Topic-Based Mini-Courses</p>
-          <p class="feat-desc">100+ hours of training organized by topic — identity, calling, faith, relationships, money, and more. Searchable. Self-paced. Built to fit your life.</p>
+      <div class="kus-text">
+        <p class="tag">IV · The Irreplaceable Feature</p>
+        <h2>Kusudi in the community.<br><em>Every month.</em></h2>
+        <p>Monthly live sessions. Teaching, Q&A, and real conversations about purpose, calling, identity, and the life God designed for you. Not a pre-recorded module. Not a representative. Him — in the room, with you, every month.</p>
+        <p>Always recorded. Come live when you can. Catch the replay when you can't. The point is that he's present — and so is a room full of people walking the same path.</p>
+        <div class="kus-tags">
+          <span class="kus-tag">Live, with replays</span>
+          <span class="kus-tag">Community forum access</span>
+          <span class="kus-tag">Engage on your time</span>
         </div>
-        <div class="incl-badge">Included</div>
-      </div>
-
-    </div>
-
-    <!-- LIBRARY GRID -->
-    <p class="lib-label">Bonus Lessons Library</p>
-    <div class="lib-grid">
-      <div class="lib-item">
-        <p class="lib-num">03</p>
-        <p class="lib-title">Becoming Intentional</p>
-        <p class="lib-desc">How to stop drifting and start designing your days with purpose at the center.</p>
-        <span class="incl-badge">Included</span>
-      </div>
-      <div class="lib-item">
-        <p class="lib-num">04</p>
-        <p class="lib-title">Becoming Aware</p>
-        <p class="lib-desc">The self-awareness framework that makes every other practice work deeper and faster.</p>
-        <span class="incl-badge">Included</span>
-      </div>
-      <div class="lib-item">
-        <p class="lib-num">05</p>
-        <p class="lib-title">3-Step Spiritual Creation</p>
-        <p class="lib-desc">How to align your spirit, soul, and actions so what you build actually lasts.</p>
-        <span class="incl-badge">Included</span>
-      </div>
-      <div class="lib-item">
-        <p class="lib-num">06</p>
-        <p class="lib-title">Turning Purpose into Profits</p>
-        <p class="lib-desc">4-part training on how to make your first $10 to $1,000 from what God placed in you.</p>
-        <span class="incl-badge">Included</span>
-      </div>
-    </div>
-
-    <!-- PRICELESS -->
-    <p class="lib-label">The Room</p>
-    <div class="priceless-grid">
-      <div class="priceless-item">
-        <p class="priceless-num">07</p>
-        <p class="priceless-title">The Community</p>
-        <p class="priceless-desc">People on the same journey — learning, building, and walking in purpose together. The work compounds in mirrors.</p>
-        <p class="priceless-badge">Priceless</p>
-      </div>
-      <div class="priceless-item">
-        <p class="priceless-num">08</p>
-        <p class="priceless-title">Ongoing Content Drops</p>
-        <p class="priceless-desc">New training added regularly. This isn't a static vault — it's a living library that grows with you.</p>
-        <p class="priceless-badge">Priceless</p>
-      </div>
-      <div class="priceless-item">
-        <p class="priceless-num">09</p>
-        <p class="priceless-title">Lifetime Access to Purchases</p>
-        <p class="priceless-desc">Everything you access while you're a member is yours. Come back to any lesson, any time.</p>
-        <p class="priceless-badge">Priceless</p>
-      </div>
-    </div>
-
-    <!-- VALUE STACK -->
-    <div class="value-stack">
-      <p class="value-label">Total First-Month Value</p>
-      <div class="value-row">
-        <div>
-          <p class="value-row-name">The Training Library</p>
-          <p class="value-row-sub">100+ hours, organized mini-courses</p>
+        <div class="kus-quote">
+          <p>"You weren't made for a version of your life that fits someone else's blueprint. You were made for yours. And you don't have to build it alone."</p>
+          <cite>— Kusudi</cite>
         </div>
-        <p class="value-row-price">$1,200</p>
-      </div>
-      <div class="value-row">
-        <div>
-          <p class="value-row-name">Path to Purpose (12-Week Program)</p>
-          <p class="value-row-sub">Standalone price</p>
-        </div>
-        <p class="value-row-price">$297</p>
-      </div>
-      <div class="value-row">
-        <div>
-          <p class="value-row-name">4 Bonus Lessons</p>
-          <p class="value-row-sub">Intentional, Aware, Spiritual Creation, Profits</p>
-        </div>
-        <p class="value-row-price">$400</p>
-      </div>
-      <div class="value-row">
-        <div>
-          <p class="value-row-name">The Community & Room</p>
-          <p class="value-row-sub">Forum, people, mirrors</p>
-        </div>
-        <p class="value-row-price priceless">Priceless</p>
-      </div>
-      <div class="value-total">
-        <p class="value-total-label">Stated First-Month Value</p>
-        <p class="value-total-num">$2,000<sup style="font-size:0.4em;vertical-align:top;margin-top:10px">+</sup></p>
-        <p class="value-total-sub">At the $27 floor</p>
       </div>
     </div>
   </div>
@@ -408,52 +454,103 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.18); }
 
 <!-- WHO IT'S FOR -->
 <section class="for-section">
-  <p class="section-tag">III · You Know the Calling</p>
-  <h2>You've been doing it<br><em>alone for long enough.</em></h2>
-  <div class="for-divider"></div>
+  <p class="tag">V · Who This Is For</p>
+  <h2>You've known this<br>long enough.<br><em>Now it's time to move.</em></h2>
 
   <div class="for-block">
-    <p class="for-block-label">For the Seeker</p>
-    <h3>You feel it — but you can't quite name it yet.</h3>
-    <p>You've read the books. You've prayed the prayers. You've done the journaling. Maybe the course. Maybe the retreat. And you've hit <em>the wall</em> where the knowing isn't translating into the living. Not because you're not serious. Not because God isn't speaking. <strong>Because the work compounds in community.</strong> And you've been doing it without one.</p>
+    <p class="for-lbl">For the Called</p>
+    <h3>You've felt it your whole life. You just haven't named it yet.</h3>
+    <p>You've prayed about it. You've journaled it. You've tried to talk yourself out of it and couldn't. <strong>That feeling isn't going away — because it's not supposed to.</strong> Clarity about your calling doesn't come from more information. It comes from being in a room with people who take theirs as seriously as you take yours.</p>
   </div>
 
   <div class="for-block">
-    <p class="for-block-label">For the One Who Knows</p>
-    <h3>You know your purpose. You just haven't fully stepped into it.</h3>
-    <p>Fear. The opinions of others. The question of whether it's really real. You've felt the calling clearly — and you've also felt the resistance that comes right after it. <strong>The room is the mirror you've been missing.</strong> Purpose deepens <em>in witness</em>, not in isolation.</p>
+    <p class="for-lbl">For the One Who Knows</p>
+    <h3>You know what it is. You just haven't fully stepped into it.</h3>
+    <p>Fear. The weight of other people's opinions. The quiet question of whether it's really real. You've felt the calling clearly — and you've felt the resistance that comes right after it. <strong>Purpose deepens in witness, not in isolation.</strong> The community is the accountability your calling has been waiting for.</p>
   </div>
 
   <div class="for-block">
-    <p class="for-block-label">For the Builder</p>
-    <h3>You're building — but you need it to mean something more.</h3>
-    <p>You've achieved things. Built things. The career, the income, the life that looks right from the outside. And something still feels hollow. <strong>You're not looking for more information.</strong> You're looking for the room where the work is real, the people are serious, and the calling is the center of everything.</p>
+    <p class="for-lbl">For the Builder</p>
+    <h3>You're already moving. But something keeps feeling off.</h3>
+    <p>The business is growing. The platform is building. The ministry is moving. And something underneath it still doesn't feel fully rooted. <strong>You don't need more strategy. You need a deeper foundation.</strong> What you're building needs to be grounded in something that lasts beyond the next launch.</p>
+  </div>
+
+  <div class="for-block">
+    <p class="for-lbl">For Everyone Else</p>
+    <h3>You don't need a category. You just need to stop doing this alone.</h3>
+    <p>If you're still reading this, something already recognized something in this. <strong>That's enough.</strong> This community is for anyone who's been carrying their calling alone and is ready — <em>finally ready</em> — to walk in it with people who get it.</p>
+  </div>
+
+  <p class="for-close">You were made for this.<br><em>You don't have to figure it out alone.</em></p>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="testi-inner">
+    <p class="tag-center">VI · What the Community Does</p>
+
+    <div class="testi-group">
+      <p class="testi-group-label">For the Called</p>
+      <p class="testi-group-sub">On finally finding the room that matches the calling.</p>
+      <div class="testi-row">
+        <div class="testi-card">
+          <span class="testi-stars">★★★★★</span>
+          <span class="testi-quote-mark">"</span>
+          <p class="testi-text">Add a real testimonial from your Skool community here. Copy it directly from the reviews members have left.</p>
+          <div class="testi-author"><div class="testi-av">A</div><span class="testi-name">Member Name</span></div>
+        </div>
+        <div class="testi-card">
+          <span class="testi-stars">★★★★★</span>
+          <span class="testi-quote-mark">"</span>
+          <p class="testi-text">Add a real testimonial from your Skool community here. Copy it directly from the reviews members have left.</p>
+          <div class="testi-author"><div class="testi-av">B</div><span class="testi-name">Member Name</span></div>
+        </div>
+        <div class="testi-card">
+          <span class="testi-stars">★★★★★</span>
+          <span class="testi-quote-mark">"</span>
+          <p class="testi-text">Add a real testimonial from your Skool community here. Copy it directly from the reviews members have left.</p>
+          <div class="testi-author"><div class="testi-av">C</div><span class="testi-name">Member Name</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-group">
+      <p class="testi-group-label">For the Builder</p>
+      <p class="testi-group-sub">On what the community does for the work.</p>
+      <div class="testi-row two">
+        <div class="testi-card">
+          <span class="testi-stars">★★★★★</span>
+          <span class="testi-quote-mark">"</span>
+          <p class="testi-text">Add a real testimonial from your Skool community here. Copy it directly from the reviews members have left.</p>
+          <div class="testi-author"><div class="testi-av">D</div><span class="testi-name">Member Name</span></div>
+        </div>
+        <div class="testi-card">
+          <span class="testi-stars">★★★★★</span>
+          <span class="testi-quote-mark">"</span>
+          <p class="testi-text">Add a real testimonial from your Skool community here. Copy it directly from the reviews members have left.</p>
+          <div class="testi-author"><div class="testi-av">E</div><span class="testi-name">Member Name</span></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- BOTTOM CTA -->
-<section class="bottom-price">
-  <div class="bottom-price-inner">
-    <p class="section-tag-center">IV · Step Into the Room</p>
-    <h2>One community.<br><em>One price you choose.</em></h2>
-    <p>Pay what reflects where you are right now. The room is the same for everyone who walks through the door.</p>
+<section class="bottom-cta">
+  <p class="tag-center">VII · Step In</p>
+  <h2>One community.<br><em>One price you choose.</em></h2>
+  <p>Pay what reflects where you are right now. What's inside is exactly the same for everyone who walks through the door.</p>
 
-    <div class="bottom-slider-card">
-      <p class="card-label">Pay What You Can</p>
-      <div class="bottom-price-display" id="bottomPrice">$27 <span>/ month</span></div>
-      <p class="bottom-price-sub">Sliding scale · $27 – $97 · Cancel anytime</p>
-      <div class="slider-wrap">
-        <div class="slider-labels"><span>$27</span><span>$97</span></div>
-        <input type="range" id="bottomSlider" min="27" max="97" step="10" value="27" oninput="updateBottomPrice(this.value)">
-        <p class="slider-note">Slide to choose your monthly contribution</p>
-      </div>
-    </div>
-
-    <a href="https://www.fanbasis.com/agency-checkout/world-of-purpose/COMMUNITY_LINK_HERE" id="bottomBtn" class="bottom-join-btn" target="_blank" rel="noopener">
-      Join the Community &rarr;
-    </a>
-    <p class="bottom-note">Opens in a new tab &nbsp;·&nbsp; Secure checkout via Fanbasis &nbsp;·&nbsp; Cancel anytime</p>
+  <div class="bottom-card">
+    <p class="card-eyebrow">Pay What You Can</p>
+    <div class="bottom-price" id="bottomPrice">$27 <sub>/ month</sub></div>
+    <p class="bottom-range">Sliding scale · $27 – $97 · Cancel anytime</p>
+    <div class="slider-labels"><span>$27</span><span>$97</span></div>
+    <input type="range" id="bottomSlider" min="27" max="97" step="10" value="27" oninput="updateBottom(this.value)">
+    <p class="slider-hint">Slide to choose your monthly contribution</p>
+    <a href="https://www.fanbasis.com/agency-checkout/world-of-purpose/COMMUNITY_LINK_HERE" id="bottomBtn" class="bottom-btn">Join World of Purpose &rarr;</a>
   </div>
+  <p class="bottom-note">Secure checkout via Fanbasis &nbsp;·&nbsp; Cancel anytime &nbsp;·&nbsp; Instant access</p>
 </section>
 
 <footer>
@@ -464,34 +561,28 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.18); }
 </div>
 
 <script>
-var prices = [27,37,47,57,67,77,87,97];
-var fanbasisBase = 'https://www.fanbasis.com/agency-checkout/world-of-purpose/COMMUNITY_LINK_HERE';
+var base = 'https://www.fanbasis.com/agency-checkout/world-of-purpose/COMMUNITY_LINK_HERE';
 
-function updateSliderFill(el) {
-  var min = parseInt(el.min), max = parseInt(el.max), val = parseInt(el.value);
-  var pct = ((val - min) / (max - min)) * 100;
+function fill(el) {
+  var pct = ((parseInt(el.value) - parseInt(el.min)) / (parseInt(el.max) - parseInt(el.min))) * 100;
   el.style.setProperty('--pct', pct + '%');
 }
 
-function updatePrice(val) {
-  val = parseInt(val);
-  document.getElementById('heroPrice').innerHTML = '$' + val + ' <span>/ month</span>';
-  updateSliderFill(document.getElementById('heroSlider'));
-  document.getElementById('heroBtn').href = fanbasisBase + '?amount=' + val;
+function updateHero(v) {
+  document.getElementById('heroPrice').innerHTML = '$' + v + ' <sub>/ month</sub>';
+  fill(document.getElementById('heroSlider'));
+  document.getElementById('heroBtn').href = base + '?amount=' + v;
 }
 
-function updateBottomPrice(val) {
-  val = parseInt(val);
-  document.getElementById('bottomPrice').innerHTML = '$' + val + ' <span>/ month</span>';
-  updateSliderFill(document.getElementById('bottomSlider'));
-  document.getElementById('bottomBtn').href = fanbasisBase + '?amount=' + val;
+function updateBottom(v) {
+  document.getElementById('bottomPrice').innerHTML = '$' + v + ' <sub>/ month</sub>';
+  fill(document.getElementById('bottomSlider'));
+  document.getElementById('bottomBtn').href = base + '?amount=' + v;
 }
 
-// init fills
-updateSliderFill(document.getElementById('heroSlider'));
-updateSliderFill(document.getElementById('bottomSlider'));
+fill(document.getElementById('heroSlider'));
+fill(document.getElementById('bottomSlider'));
 </script>
 
-</div>
 </body>
 </html>
