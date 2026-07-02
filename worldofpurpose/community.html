@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Life of Purpose Community – World of Purpose</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Inter, sans-serif; background: #0a1a0f; color: #fff; -webkit-font-smoothing: antialiased; }
+.wop-wrap { background: #0a1a0f; color: #fff; font-family: Inter, sans-serif; width: 100%; min-height: 100vh; }
+
+/* ── ANNOUNCEMENT BAR ── */
+.announce { background: rgba(106,191,138,0.1); border-bottom: 1px solid rgba(106,191,138,0.2); padding: 10px 20px; text-align: center; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #6abf8a; }
+.announce span { color: rgba(255,255,255,0.4); margin: 0 10px; }
+
+/* ── HERO ── */
+.hero { padding: 72px 24px 64px; max-width: 1140px; margin: 0 auto; display: grid; grid-template-columns: 1fr 440px; gap: 64px; align-items: center; }
+
+.hero-left .section-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #6abf8a; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+.section-tag::before { content: ''; display: block; width: 28px; height: 1px; background: #6abf8a; }
+
+.hero-left h1 { font-family: "Playfair Display", Georgia, serif; font-size: clamp(40px, 5.5vw, 68px); font-weight: 800; line-height: 1.1; color: #fff; margin-bottom: 24px; }
+.hero-left h1 em { font-style: italic; color: #6abf8a; }
+
+.hero-left .hero-sub { font-size: 18px; color: rgba(255,255,255,0.62); line-height: 1.75; max-width: 520px; margin-bottom: 36px; }
+
+.social-proof { display: inline-flex; align-items: center; gap: 12px; background: rgba(106,191,138,0.08); border: 1px solid rgba(106,191,138,0.2); border-radius: 100px; padding: 10px 18px; }
+.proof-faces { display: flex; margin-right: 4px; }
+.proof-face { width: 28px; height: 28px; border-radius: 50%; background: #1b4232; border: 2px solid #0a1a0f; margin-left: -8px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: #6abf8a; overflow: hidden; }
+.proof-face:first-child { margin-left: 0; }
+.proof-text { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.8); }
+.proof-text strong { color: #fff; }
+.proof-star { color: #6abf8a; font-size: 12px; margin-left: 2px; }
+
+/* ── PRICING CARD ── */
+.pricing-card { background: #0f2318; border: 1px solid rgba(106,191,138,0.25); border-radius: 20px; padding: 36px 32px 32px; position: sticky; top: 24px; }
+
+.card-label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #6abf8a; margin-bottom: 10px; }
+.card-price-display { font-family: "Playfair Display", Georgia, serif; font-size: 42px; font-weight: 800; color: #fff; margin-bottom: 4px; line-height: 1; }
+.card-price-display span { font-size: 18px; font-weight: 600; color: rgba(255,255,255,0.5); font-family: Inter, sans-serif; }
+.card-price-range { font-size: 12px; color: rgba(255,255,255,0.35); margin-bottom: 24px; }
+
+/* SLIDER */
+.slider-wrap { margin-bottom: 8px; }
+.slider-labels { display: flex; justify-content: space-between; font-size: 11px; color: rgba(255,255,255,0.35); margin-bottom: 8px; font-weight: 600; }
+input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 4px; border-radius: 4px; background: linear-gradient(to right, #6abf8a var(--pct, 0%), rgba(255,255,255,0.12) var(--pct, 0%)); outline: none; cursor: pointer; margin-bottom: 6px; }
+input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 22px; height: 22px; border-radius: 50%; background: #fff; border: 3px solid #6abf8a; box-shadow: 0 2px 10px rgba(106,191,138,0.4); cursor: pointer; transition: transform 0.1s; }
+input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.15); }
+input[type=range]::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; background: #fff; border: 3px solid #6abf8a; box-shadow: 0 2px 10px rgba(106,191,138,0.4); cursor: pointer; }
+.slider-note { font-size: 11px; color: rgba(255,255,255,0.3); text-align: center; margin-bottom: 20px; }
+
+/* WHY BOX */
+.why-box { background: rgba(255,255,255,0.04); border-radius: 10px; padding: 16px; margin-bottom: 22px; }
+.why-label { font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #6abf8a; margin-bottom: 10px; }
+.why-box p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.65; }
+.why-box p strong { color: rgba(255,255,255,0.9); }
+.why-box p + p { margin-top: 8px; }
+
+.join-btn { display: block; width: 100%; background: linear-gradient(135deg, #4ab87a, #2d7a4a); color: #fff; font-size: 17px; font-weight: 800; padding: 20px; border-radius: 12px; text-align: center; text-decoration: none; box-shadow: 0 6px 28px rgba(74,184,122,0.35); margin-bottom: 16px; border: none; cursor: pointer; transition: opacity 0.15s; }
+.join-btn:hover { opacity: 0.9; }
+
+.card-checks { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 22px; }
+.card-check { display: flex; align-items: center; gap: 6px; font-size: 12px; color: rgba(255,255,255,0.5); }
+.card-check svg { width: 14px; height: 14px; flex-shrink: 0; color: #6abf8a; }
+
+.card-badges { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; border-top: 1px solid rgba(255,255,255,0.07); padding-top: 18px; }
+.badge-item { text-align: center; }
+.badge-item svg { width: 20px; height: 20px; color: rgba(255,255,255,0.3); margin-bottom: 5px; }
+.badge-item p { font-size: 9px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.3); line-height: 1.4; }
+
+/* ── SECTION UTILITY ── */
+.section-tag-center { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #6abf8a; text-align: center; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 12px; }
+.section-tag-center::before, .section-tag-center::after { content: ''; display: block; width: 28px; height: 1px; background: rgba(106,191,138,0.4); }
+
+/* ── WHAT'S INSIDE ── */
+.inside { background: #0c1f14; border-top: 1px solid rgba(106,191,138,0.1); border-bottom: 1px solid rgba(106,191,138,0.1); padding: 80px 24px; }
+.inside-inner { max-width: 1000px; margin: 0 auto; }
+
+.inside h2 { font-family: "Playfair Display", Georgia, serif; font-size: clamp(36px, 5vw, 60px); font-weight: 800; color: #fff; line-height: 1.15; margin-bottom: 12px; }
+.inside h2 em { font-style: italic; color: #6abf8a; }
+.inside-sub { font-size: 16px; color: rgba(255,255,255,0.45); font-style: italic; max-width: 560px; margin-bottom: 48px; line-height: 1.7; border-left: 2px solid rgba(106,191,138,0.3); padding-left: 16px; }
+
+.stats-row { display: flex; gap: 24px; margin-bottom: 52px; flex-wrap: wrap; }
+.stat-chip { background: rgba(255,255,255,0.04); border: 1px solid rgba(106,191,138,0.15); border-radius: 10px; padding: 14px 20px; display: flex; flex-direction: column; gap: 2px; }
+.stat-chip strong { font-size: 18px; font-weight: 800; color: #fff; }
+.stat-chip span { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+
+/* FEATURED ITEMS */
+.featured-items { display: flex; flex-direction: column; gap: 2px; margin-bottom: 40px; }
+.feat-item { display: grid; grid-template-columns: 200px 1fr auto; align-items: center; gap: 24px; background: rgba(255,255,255,0.03); border: 1px solid rgba(106,191,138,0.1); border-radius: 12px; padding: 20px 24px; transition: border-color 0.2s; }
+.feat-item:hover { border-color: rgba(106,191,138,0.25); }
+.feat-img { width: 200px; height: 110px; border-radius: 8px; background: #1b4232; overflow: hidden; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.15); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; flex-shrink: 0; }
+.feat-num { font-size: 28px; font-weight: 900; color: rgba(106,191,138,0.3); font-family: "Playfair Display", Georgia, serif; margin-bottom: 4px; }
+.feat-title { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+.feat-desc { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.6; }
+.feat-badge { background: rgba(106,191,138,0.12); border: 1px solid rgba(106,191,138,0.25); border-radius: 100px; padding: 5px 12px; font-size: 11px; font-weight: 700; color: #6abf8a; white-space: nowrap; }
+.incl-badge { background: rgba(106,191,138,0.12); border: 1px solid rgba(106,191,138,0.25); border-radius: 100px; padding: 5px 12px; font-size: 11px; font-weight: 700; color: #6abf8a; white-space: nowrap; display: flex; align-items: center; gap: 5px; }
+.incl-badge::before { content: '✓'; }
+
+/* LIBRARY GRID */
+.lib-label { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.lib-label::before { content: '◈'; color: rgba(106,191,138,0.4); }
+.lib-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 40px; }
+.lib-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(106,191,138,0.08); border-radius: 10px; padding: 18px 20px; }
+.lib-num { font-size: 13px; font-weight: 700; color: rgba(106,191,138,0.5); margin-bottom: 6px; }
+.lib-title { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+.lib-desc { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.6; }
+.lib-item .incl-badge { margin-top: 12px; display: inline-flex; font-size: 10px; padding: 4px 10px; }
+
+/* PRICELESS ROW */
+.priceless-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; margin-bottom: 48px; }
+.priceless-item { background: rgba(255,255,255,0.02); border: 1px solid rgba(106,191,138,0.08); border-radius: 10px; padding: 20px; }
+.priceless-num { font-size: 11px; font-weight: 700; color: rgba(106,191,138,0.4); margin-bottom: 8px; }
+.priceless-title { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+.priceless-desc { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.6; margin-bottom: 12px; }
+.priceless-badge { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #6abf8a; }
+
+/* VALUE STACK */
+.value-stack { background: rgba(106,191,138,0.05); border: 1px solid rgba(106,191,138,0.15); border-radius: 16px; padding: 28px 32px; }
+.value-label { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 20px; }
+.value-row { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.value-row:last-of-type { border-bottom: none; }
+.value-row-name { font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.75); }
+.value-row-sub { font-size: 12px; color: rgba(255,255,255,0.3); }
+.value-row-price { font-size: 15px; font-weight: 700; color: #6abf8a; }
+.value-row-price.priceless { color: rgba(255,255,255,0.3); font-style: italic; font-size: 13px; }
+.value-total { background: rgba(106,191,138,0.08); border-radius: 10px; padding: 20px 24px; margin-top: 16px; text-align: center; }
+.value-total-label { font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 6px; }
+.value-total-num { font-family: "Playfair Display", Georgia, serif; font-size: 52px; font-weight: 800; color: #6abf8a; line-height: 1; margin-bottom: 4px; }
+.value-total-sub { font-size: 12px; color: rgba(255,255,255,0.3); }
+
+/* ── WHO IT'S FOR ── */
+.for-section { padding: 80px 24px; max-width: 900px; margin: 0 auto; }
+.for-section h2 { font-family: "Playfair Display", Georgia, serif; font-size: clamp(34px, 5vw, 56px); font-weight: 800; line-height: 1.15; color: #fff; margin-bottom: 8px; }
+.for-section h2 em { display: block; font-style: italic; color: #6abf8a; }
+.for-divider { width: 48px; height: 2px; background: rgba(106,191,138,0.4); margin: 28px 0; }
+.for-block { border-left: 2px solid rgba(106,191,138,0.25); padding-left: 24px; margin-bottom: 40px; }
+.for-block:last-child { margin-bottom: 0; }
+.for-block-label { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #6abf8a; margin-bottom: 10px; }
+.for-block h3 { font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 12px; line-height: 1.35; }
+.for-block p { font-size: 16px; color: rgba(255,255,255,0.55); line-height: 1.8; }
+.for-block p strong { color: rgba(255,255,255,0.9); font-weight: 700; }
+.for-block p em { font-style: italic; }
+
+/* ── BOTTOM PRICING SECTION ── */
+.bottom-price { background: #0c1f14; border-top: 1px solid rgba(106,191,138,0.1); padding: 80px 24px 80px; text-align: center; }
+.bottom-price-inner { max-width: 680px; margin: 0 auto; }
+.bottom-price h2 { font-family: "Playfair Display", Georgia, serif; font-size: clamp(32px, 5vw, 52px); font-weight: 800; color: #fff; line-height: 1.15; margin-bottom: 16px; }
+.bottom-price h2 em { font-style: italic; color: #6abf8a; }
+.bottom-price p { font-size: 17px; color: rgba(255,255,255,0.5); line-height: 1.75; margin-bottom: 44px; max-width: 520px; margin-left: auto; margin-right: auto; }
+
+.bottom-slider-card { background: #0f2318; border: 1px solid rgba(106,191,138,0.25); border-radius: 20px; padding: 40px; max-width: 520px; margin: 0 auto 32px; }
+.bottom-price-display { font-family: "Playfair Display", Georgia, serif; font-size: 56px; font-weight: 800; color: #fff; margin-bottom: 4px; line-height: 1; }
+.bottom-price-display span { font-size: 22px; font-weight: 600; color: rgba(255,255,255,0.4); font-family: Inter, sans-serif; }
+.bottom-price-sub { font-size: 13px; color: rgba(255,255,255,0.3); margin-bottom: 28px; }
+
+.bottom-join-btn { display: inline-block; background: linear-gradient(135deg, #4ab87a, #2d7a4a); color: #fff; font-size: 18px; font-weight: 800; padding: 22px 52px; border-radius: 12px; text-decoration: none; box-shadow: 0 8px 32px rgba(74,184,122,0.38); max-width: 480px; width: 100%; border: none; cursor: pointer; transition: opacity 0.15s; }
+.bottom-join-btn:hover { opacity: 0.9; }
+.bottom-note { font-size: 12px; color: rgba(255,255,255,0.2); margin-top: 14px; }
+
+/* ── FOOTER ── */
+footer { border-top: 1px solid rgba(106,191,138,0.1); padding: 36px 24px; text-align: center; }
+.footer-logo { font-family: "Playfair Display", Georgia, serif; font-size: 20px; font-weight: 700; color: #6abf8a; margin-bottom: 6px; font-style: italic; }
+footer p { font-size: 12px; color: rgba(255,255,255,0.18); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; gap: 40px; padding: 48px 20px 40px; }
+  .pricing-card { position: static; }
+  .inside { padding: 56px 20px; }
+  .feat-item { grid-template-columns: 1fr; }
+  .feat-img { width: 100%; height: 160px; }
+  .lib-grid { grid-template-columns: 1fr; }
+  .priceless-grid { grid-template-columns: 1fr; }
+  .for-section { padding: 56px 20px; }
+  .bottom-price { padding: 56px 20px; }
+  .bottom-slider-card { padding: 28px 22px; }
+}
+@media (max-width: 500px) {
+  .hero-left h1 { font-size: 34px; }
+  .stats-row { flex-direction: column; }
+  .value-stack { padding: 20px; }
+  .card-badges { grid-template-columns: 1fr 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="wop-wrap">
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announce">
+  Life of Purpose Community <span>·</span> Pay What Reflects Where You Are <span>·</span> Cancel Anytime
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="section-tag">I · Life of Purpose Community</p>
+    <h1>Stop walking<br>your purpose<br><em>alone.</em></h1>
+    <p class="hero-sub">100+ hours of training. Mini-courses organized by topic. A community of people who aren't just talking about purpose — they're living it. Pay what reflects where you are right now.</p>
+    <div class="social-proof">
+      <div class="proof-faces">
+        <div class="proof-face">K</div>
+        <div class="proof-face">A</div>
+        <div class="proof-face">M</div>
+        <div class="proof-face">+</div>
+      </div>
+      <span class="proof-text"><strong>People walking in purpose</strong> · 5.0 <span class="proof-star">★</span></span>
+    </div>
+  </div>
+
+  <div class="pricing-card">
+    <p class="card-label">Pay What You Can</p>
+    <div class="card-price-display" id="heroPrice">$27 <span>/ month</span></div>
+    <p class="card-price-range">Sliding scale · $27 – $97</p>
+
+    <div class="slider-wrap">
+      <div class="slider-labels"><span>$27</span><span>$97</span></div>
+      <input type="range" id="heroSlider" min="27" max="97" step="10" value="27" oninput="updatePrice(this.value)">
+      <p class="slider-note">Slide to choose your monthly contribution</p>
+    </div>
+
+    <div class="why-box">
+      <p class="why-label">Why Pay What You Can?</p>
+      <p><strong>The room is for whoever is called to it.</strong> Money shouldn't be what keeps anyone out of their purpose.</p>
+      <p>Your contribution is a <strong>statement of commitment</strong>. Whether it's $27 or $97, what matters most is that <strong>you show up</strong>. This is generosity in practice.</p>
+    </div>
+
+    <a href="https://www.fanbasis.com/agency-checkout/world-of-purpose/COMMUNITY_LINK_HERE" id="heroBtn" class="join-btn" target="_blank" rel="noopener">
+      Join the Community &rarr;
+    </a>
+
+    <div class="card-checks">
+      <div class="card-check">
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="12 3 5.5 10 2 6.5"/></svg>
+        Cancel anytime
+      </div>
+      <div class="card-check">
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="12 3 5.5 10 2 6.5"/></svg>
+        Pause anytime
+      </div>
+      <div class="card-check">
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="12 3 5.5 10 2 6.5"/></svg>
+        No contracts
+      </div>
+      <div class="card-check">
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="12 3 5.5 10 2 6.5"/></svg>
+        Instant access
+      </div>
+    </div>
+
+    <div class="card-badges">
+      <div class="badge-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        <p>256-Bit SSL</p>
+      </div>
+      <div class="badge-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <p>Secure Payment</p>
+      </div>
+      <div class="badge-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <p>Cancel Anytime</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INSIDE -->
+<section class="inside">
+  <div class="inside-inner">
+    <p class="section-tag-center">II · What's Inside the Room</p>
+    <h2>Everything you need.<br><em>One price you choose.</em></h2>
+    <p class="inside-sub">The library is one part of the room. The room is what you're really joining — the people, the practice, the presence of others who are serious about walking in purpose.</p>
+
+    <div class="stats-row">
+      <div class="stat-chip">
+        <strong>100+</strong>
+        <span>Hours of Training</span>
+      </div>
+      <div class="stat-chip">
+        <strong>Instant</strong>
+        <span>Unlocks the Moment You Join</span>
+      </div>
+      <div class="stat-chip">
+        <strong>$2,000+</strong>
+        <span>Stated First-Month Value</span>
+      </div>
+    </div>
+
+    <!-- FEATURED ITEMS -->
+    <div class="featured-items">
+
+      <div class="feat-item">
+        <div class="feat-img">Path to Purpose</div>
+        <div>
+          <p class="feat-num">01</p>
+          <p class="feat-title">Path to Purpose — 12-Week Program</p>
+          <p class="feat-desc">The complete program. 12 weeks of deep inner work that takes you from unclear and unfulfilled to walking in your God-given calling. Every lesson, every exercise — included.</p>
+        </div>
+        <div class="incl-badge">Included</div>
+      </div>
+
+      <div class="feat-item">
+        <div class="feat-img">Mini-Courses</div>
+        <div>
+          <p class="feat-num">02</p>
+          <p class="feat-title">Topic-Based Mini-Courses</p>
+          <p class="feat-desc">100+ hours of training organized by topic — identity, calling, faith, relationships, money, and more. Searchable. Self-paced. Built to fit your life.</p>
+        </div>
+        <div class="incl-badge">Included</div>
+      </div>
+
+    </div>
+
+    <!-- LIBRARY GRID -->
+    <p class="lib-label">Bonus Lessons Library</p>
+    <div class="lib-grid">
+      <div class="lib-item">
+        <p class="lib-num">03</p>
+        <p class="lib-title">Becoming Intentional</p>
+        <p class="lib-desc">How to stop drifting and start designing your days with purpose at the center.</p>
+        <span class="incl-badge">Included</span>
+      </div>
+      <div class="lib-item">
+        <p class="lib-num">04</p>
+        <p class="lib-title">Becoming Aware</p>
+        <p class="lib-desc">The self-awareness framework that makes every other practice work deeper and faster.</p>
+        <span class="incl-badge">Included</span>
+      </div>
+      <div class="lib-item">
+        <p class="lib-num">05</p>
+        <p class="lib-title">3-Step Spiritual Creation</p>
+        <p class="lib-desc">How to align your spirit, soul, and actions so what you build actually lasts.</p>
+        <span class="incl-badge">Included</span>
+      </div>
+      <div class="lib-item">
+        <p class="lib-num">06</p>
+        <p class="lib-title">Turning Purpose into Profits</p>
+        <p class="lib-desc">4-part training on how to make your first $10 to $1,000 from what God placed in you.</p>
+        <span class="incl-badge">Included</span>
+      </div>
+    </div>
+
+    <!-- PRICELESS -->
+    <p class="lib-label">The Room</p>
+    <div class="priceless-grid">
+      <div class="priceless-item">
+        <p class="priceless-num">07</p>
+        <p class="priceless-title">The Community</p>
+        <p class="priceless-desc">People on the same journey — learning, building, and walking in purpose together. The work compounds in mirrors.</p>
+        <p class="priceless-badge">Priceless</p>
+      </div>
+      <div class="priceless-item">
+        <p class="priceless-num">08</p>
+        <p class="priceless-title">Ongoing Content Drops</p>
+        <p class="priceless-desc">New training added regularly. This isn't a static vault — it's a living library that grows with you.</p>
+        <p class="priceless-badge">Priceless</p>
+      </div>
+      <div class="priceless-item">
+        <p class="priceless-num">09</p>
+        <p class="priceless-title">Lifetime Access to Purchases</p>
+        <p class="priceless-desc">Everything you access while you're a member is yours. Come back to any lesson, any time.</p>
+        <p class="priceless-badge">Priceless</p>
+      </div>
+    </div>
+
+    <!-- VALUE STACK -->
+    <div class="value-stack">
+      <p class="value-label">Total First-Month Value</p>
+      <div class="value-row">
+        <div>
+          <p class="value-row-name">The Training Library</p>
+          <p class="value-row-sub">100+ hours, organized mini-courses</p>
+        </div>
+        <p class="value-row-price">$1,200</p>
+      </div>
+      <div class="value-row">
+        <div>
+          <p class="value-row-name">Path to Purpose (12-Week Program)</p>
+          <p class="value-row-sub">Standalone price</p>
+        </div>
+        <p class="value-row-price">$297</p>
+      </div>
+      <div class="value-row">
+        <div>
+          <p class="value-row-name">4 Bonus Lessons</p>
+          <p class="value-row-sub">Intentional, Aware, Spiritual Creation, Profits</p>
+        </div>
+        <p class="value-row-price">$400</p>
+      </div>
+      <div class="value-row">
+        <div>
+          <p class="value-row-name">The Community & Room</p>
+          <p class="value-row-sub">Forum, people, mirrors</p>
+        </div>
+        <p class="value-row-price priceless">Priceless</p>
+      </div>
+      <div class="value-total">
+        <p class="value-total-label">Stated First-Month Value</p>
+        <p class="value-total-num">$2,000<sup style="font-size:0.4em;vertical-align:top;margin-top:10px">+</sup></p>
+        <p class="value-total-sub">At the $27 floor</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="for-section">
+  <p class="section-tag">III · You Know the Calling</p>
+  <h2>You've been doing it<br><em>alone for long enough.</em></h2>
+  <div class="for-divider"></div>
+
+  <div class="for-block">
+    <p class="for-block-label">For the Seeker</p>
+    <h3>You feel it — but you can't quite name it yet.</h3>
+    <p>You've read the books. You've prayed the prayers. You've done the journaling. Maybe the course. Maybe the retreat. And you've hit <em>the wall</em> where the knowing isn't translating into the living. Not because you're not serious. Not because God isn't speaking. <strong>Because the work compounds in community.</strong> And you've been doing it without one.</p>
+  </div>
+
+  <div class="for-block">
+    <p class="for-block-label">For the One Who Knows</p>
+    <h3>You know your purpose. You just haven't fully stepped into it.</h3>
+    <p>Fear. The opinions of others. The question of whether it's really real. You've felt the calling clearly — and you've also felt the resistance that comes right after it. <strong>The room is the mirror you've been missing.</strong> Purpose deepens <em>in witness</em>, not in isolation.</p>
+  </div>
+
+  <div class="for-block">
+    <p class="for-block-label">For the Builder</p>
+    <h3>You're building — but you need it to mean something more.</h3>
+    <p>You've achieved things. Built things. The career, the income, the life that looks right from the outside. And something still feels hollow. <strong>You're not looking for more information.</strong> You're looking for the room where the work is real, the people are serious, and the calling is the center of everything.</p>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="bottom-price">
+  <div class="bottom-price-inner">
+    <p class="section-tag-center">IV · Step Into the Room</p>
+    <h2>One community.<br><em>One price you choose.</em></h2>
+    <p>Pay what reflects where you are right now. The room is the same for everyone who walks through the door.</p>
+
+    <div class="bottom-slider-card">
+      <p class="card-label">Pay What You Can</p>
+      <div class="bottom-price-display" id="bottomPrice">$27 <span>/ month</span></div>
+      <p class="bottom-price-sub">Sliding scale · $27 – $97 · Cancel anytime</p>
+      <div class="slider-wrap">
+        <div class="slider-labels"><span>$27</span><span>$97</span></div>
+        <input type="range" id="bottomSlider" min="27" max="97" step="10" value="27" oninput="updateBottomPrice(this.value)">
+        <p class="slider-note">Slide to choose your monthly contribution</p>
+      </div>
+    </div>
+
+    <a href="https://www.fanbasis.com/agency-checkout/world-of-purpose/COMMUNITY_LINK_HERE" id="bottomBtn" class="bottom-join-btn" target="_blank" rel="noopener">
+      Join the Community &rarr;
+    </a>
+    <p class="bottom-note">Opens in a new tab &nbsp;·&nbsp; Secure checkout via Fanbasis &nbsp;·&nbsp; Cancel anytime</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">World of Purpose</div>
+  <p>&copy; 2025 World of Purpose. All rights reserved.</p>
+</footer>
+
+</div>
+
+<script>
+var prices = [27,37,47,57,67,77,87,97];
+var fanbasisBase = 'https://www.fanbasis.com/agency-checkout/world-of-purpose/COMMUNITY_LINK_HERE';
+
+function updateSliderFill(el) {
+  var min = parseInt(el.min), max = parseInt(el.max), val = parseInt(el.value);
+  var pct = ((val - min) / (max - min)) * 100;
+  el.style.setProperty('--pct', pct + '%');
+}
+
+function updatePrice(val) {
+  val = parseInt(val);
+  document.getElementById('heroPrice').innerHTML = '$' + val + ' <span>/ month</span>';
+  updateSliderFill(document.getElementById('heroSlider'));
+  document.getElementById('heroBtn').href = fanbasisBase + '?amount=' + val;
+}
+
+function updateBottomPrice(val) {
+  val = parseInt(val);
+  document.getElementById('bottomPrice').innerHTML = '$' + val + ' <span>/ month</span>';
+  updateSliderFill(document.getElementById('bottomSlider'));
+  document.getElementById('bottomBtn').href = fanbasisBase + '?amount=' + val;
+}
+
+// init fills
+updateSliderFill(document.getElementById('heroSlider'));
+updateSliderFill(document.getElementById('bottomSlider'));
+</script>
+
+</div>
+</body>
+</html>
