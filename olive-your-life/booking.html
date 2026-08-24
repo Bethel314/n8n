@@ -21,13 +21,15 @@ body { font-family: Inter, sans-serif; background: #f5f2ee; color: #2c2c2c; -web
 .badge { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: #5c5c5c; }
 .badge svg { width: 18px; height: 18px; flex-shrink: 0; }
 
+.divider { width: 48px; height: 1px; background: linear-gradient(90deg, transparent, #c9b99a, transparent); margin: 0 auto; }
+
 .scarcity { background: #faf7f3; border-top: 1px solid #e8e2da; border-bottom: 1px solid #e8e2da; padding: 18px 24px; text-align: center; }
 .scarcity p { font-size: 14px; font-weight: 600; color: #6b5c47; letter-spacing: 0.02em; }
 .scarcity span { color: #c0392b; font-weight: 700; }
 
 .about { background: #fff; padding: 56px 24px; }
 .about-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 220px 1fr; gap: 52px; align-items: start; }
-.about-photo { width: 220px; height: 260px; border-radius: 12px; overflow: hidden; }
+.about-photo { width: 220px; height: 260px; border-radius: 12px; background: #e8e2da; overflow: hidden; display: flex; align-items: center; justify-content: center; }
 .about-photo img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; }
 .about-text .section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #9b8b72; margin-bottom: 14px; }
 .about-text h2 { font-family: "Playfair Display", Georgia, serif; font-size: clamp(24px, 3.5vw, 36px); font-weight: 700; color: #1a1a1a; line-height: 1.25; margin-bottom: 16px; }
@@ -74,12 +76,12 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.3); }
 
 <section class="hero">
   <p class="eyebrow">Complimentary 30-Minute Strategy Session</p>
-  <h1>Let's Map Your Path to a <em>Richer Life</em> &mdash; On Your Terms</h1>
+  <h1>Let's Map Your Path to a <em>Richer Life</em> — On Your Terms</h1>
   <p class="hero-sub">This isn't a sales call. It's a real conversation about where you are, where you want to go, and what's actually in the way.</p>
   <div class="badges">
     <div class="badge">
       <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#9b8b72" stroke-width="1.5"/><path d="M10 5v5l3 3" stroke="#9b8b72" stroke-width="1.5" stroke-linecap="round"/></svg>
-      30 minutes &middot; No pressure
+      30 minutes · No pressure
     </div>
     <div class="badge">
       <svg viewBox="0 0 20 20" fill="none"><rect x="3" y="4" width="14" height="13" rx="2" stroke="#9b8b72" stroke-width="1.5"/><path d="M3 8h14M7 2v3M13 2v3" stroke="#9b8b72" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -87,13 +89,13 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.3); }
     </div>
     <div class="badge">
       <svg viewBox="0 0 20 20" fill="none"><path d="M10 2a6 6 0 100 12A6 6 0 0010 2zM10 18v-2M6 17l1-1.7M14 17l-1-1.7" stroke="#9b8b72" stroke-width="1.5" stroke-linecap="round"/></svg>
-      Via Zoom &middot; Complimentary
+      Via Zoom · Complimentary
     </div>
   </div>
 </section>
 
 <div class="scarcity">
-  <p>Only <span>6 appointments</span> available each Wednesday &mdash; once they're gone, the next opening is the following week.</p>
+  <p>Only <span>6 appointments</span> available each Wednesday — once they're gone, the next opening is the following week.</p>
 </div>
 
 <section class="about">
@@ -130,14 +132,9 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.3); }
   <div class="calendar-inner">
     <span class="section-label">Book Your Spot</span>
     <h2>Choose a Wednesday That Works for You</h2>
-    <p class="avail-note">Available <strong>Wednesdays only</strong> &nbsp;&middot;&nbsp; 9 AM &ndash; 3 PM &nbsp;&middot;&nbsp; <strong>6 spots per week</strong></p>
+    <p class="avail-note">Available <strong>Wednesdays only</strong> &nbsp;&middot;&nbsp; 9 AM – 3 PM &nbsp;&middot;&nbsp; <strong>6 spots per week</strong></p>
 
-    <iframe
-      src="https://api.leadconnectorhq.com/widget/booking/652th3Ovgb6M5E6liP6u"
-      style="width:100%;border:none;overflow:hidden;min-height:600px;"
-      scrolling="no"
-      id="ghl-booking-frame"
-    ></iframe>
+    <iframe src="https://api.leadconnectorhq.com/widget/booking/652th3Ovgb6M5E6liP6u" style="width: 100%;border:none;overflow: hidden;" scrolling="no" id="652th3Ovgb6M5E6liP6u_1782593699883"></iframe>
     <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
 
   </div>
@@ -145,7 +142,7 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.3); }
 
 <footer>
   <div class="footer-name">Anita Heidema</div>
-  <p>&copy; 2025 Anita Heidema &middot; Rich Life Biz Strategist. All rights reserved.</p>
+  <p>&copy; 2025 Anita Heidema · Rich Life Biz Strategist. All rights reserved.</p>
 </footer>
 
 </div>
@@ -158,10 +155,8 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.3); }
   function handleMessage(event) {
     var data = event.data;
     if (!data) return;
-
     var type = typeof data === 'string' ? data : (data.event || data.type || data.action || '');
     var typeLC = String(type).toLowerCase();
-
     if (
       typeLC === 'booking_confirmed' ||
       typeLC === 'booked' ||
