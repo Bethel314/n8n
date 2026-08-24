@@ -21,8 +21,6 @@ body { font-family: Inter, sans-serif; background: #f5f2ee; color: #2c2c2c; -web
 .badge { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: #5c5c5c; }
 .badge svg { width: 18px; height: 18px; flex-shrink: 0; }
 
-.divider { width: 48px; height: 1px; background: linear-gradient(90deg, transparent, #c9b99a, transparent); margin: 0 auto; }
-
 .scarcity { background: #faf7f3; border-top: 1px solid #e8e2da; border-bottom: 1px solid #e8e2da; padding: 18px 24px; text-align: center; }
 .scarcity p { font-size: 14px; font-weight: 600; color: #6b5c47; letter-spacing: 0.02em; }
 .scarcity span { color: #c0392b; font-weight: 700; }
@@ -152,17 +150,15 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.3); }
 
 </div>
 
-<!-- Redirect to thank you page after GHL booking -->
+<!-- Redirect to GHL thank you page after booking -->
 <script>
 (function () {
-  // UPDATE this URL to wherever your thank you page is hosted
-  var THANK_YOU_URL = 'thankyou.html';
+  var THANK_YOU_URL = 'https://sites.leadconnectorhq.com/preview/9Ylvi9FDT7jYq858fCgu?notrack=true';
 
   function handleMessage(event) {
     var data = event.data;
     if (!data) return;
 
-    // GHL fires different event shapes — handle all known variants
     var type = typeof data === 'string' ? data : (data.event || data.type || data.action || '');
     var typeLC = String(type).toLowerCase();
 
@@ -170,7 +166,6 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.3); }
       typeLC === 'booking_confirmed' ||
       typeLC === 'booked' ||
       typeLC === 'appointment_booked' ||
-      typeLC === 'calendly.event_scheduled' ||
       typeLC.indexOf('booked') !== -1 ||
       typeLC.indexOf('confirmed') !== -1 ||
       (data.status && String(data.status).toLowerCase() === 'booked')
