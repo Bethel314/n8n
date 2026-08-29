@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Masterclass – Cora Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Inter, sans-serif; background: #fff; color: #1a1a1a; -webkit-font-smoothing: antialiased; }
+
+/* ── TOP BAR ── */
+.topbar {
+  background: #1a1a2e;
+  color: #f0c060;
+  text-align: center;
+  padding: 12px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(150deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+  color: #fff;
+  padding: 80px 24px 72px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(240,192,96,0.12) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-inner { max-width: 780px; margin: 0 auto; position: relative; }
+.hero-badge {
+  display: inline-block;
+  background: rgba(240,192,96,0.15);
+  border: 1px solid rgba(240,192,96,0.5);
+  color: #f0c060;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 7px 20px;
+  border-radius: 100px;
+  margin-bottom: 28px;
+}
+.hero h1 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(30px, 5.5vw, 56px);
+  font-weight: 700;
+  line-height: 1.18;
+  margin-bottom: 20px;
+  color: #fff;
+}
+.hero h1 em { font-style: italic; color: #f0c060; }
+.hero-sub {
+  font-size: clamp(16px, 2vw, 19px);
+  color: rgba(255,255,255,0.78);
+  line-height: 1.75;
+  max-width: 620px;
+  margin: 0 auto 40px;
+}
+.hero-meta {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-bottom: 44px;
+}
+.hero-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.85);
+}
+.hero-meta-item svg { width: 18px; height: 18px; flex-shrink: 0; }
+.btn-primary {
+  display: inline-block;
+  background: linear-gradient(135deg, #f0c060, #d4a030);
+  color: #1a1a2e;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  padding: 18px 48px;
+  border-radius: 100px;
+  box-shadow: 0 8px 32px rgba(240,192,96,0.35);
+  transition: transform 0.18s, box-shadow 0.18s;
+  cursor: pointer;
+  border: none;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(240,192,96,0.45); }
+.btn-sub { display: block; margin-top: 12px; font-size: 12px; color: rgba(255,255,255,0.45); letter-spacing: 0.05em; }
+
+/* ── SOCIAL PROOF BAR ── */
+.proof-bar {
+  background: #f8f7f4;
+  border-top: 1px solid #ebe7e0;
+  border-bottom: 1px solid #ebe7e0;
+  padding: 20px 24px;
+  text-align: center;
+}
+.proof-bar-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.proof-item { font-size: 13px; font-weight: 600; color: #5a5a5a; }
+.proof-item strong { display: block; font-size: 22px; font-weight: 800; color: #1a1a2e; }
+
+/* ── SECTION SHARED ── */
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #0f3460;
+  margin-bottom: 12px;
+  text-align: center;
+}
+.section-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(26px, 4vw, 40px);
+  font-weight: 700;
+  color: #1a1a2e;
+  line-height: 1.25;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 16px;
+}
+.section-title em { font-style: italic; color: #0f3460; }
+.section-intro {
+  font-size: 16px;
+  color: #5a5a5a;
+  line-height: 1.75;
+  text-align: center;
+  max-width: 580px;
+  margin: 0 auto 48px;
+}
+
+/* ── WHAT YOU'LL LEARN ── */
+.learn { background: #fff; padding: 72px 24px; }
+.learn-inner { max-width: 860px; margin: 0 auto; }
+.learn-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+.learn-card {
+  background: #f8f7f4;
+  border: 1px solid #ebe7e0;
+  border-top: 3px solid #f0c060;
+  border-radius: 12px;
+  padding: 28px 24px;
+}
+.learn-num {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: #f0c060;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.learn-card h3 { font-size: 16px; font-weight: 700; color: #1a1a2e; margin-bottom: 10px; line-height: 1.35; }
+.learn-card p { font-size: 14px; color: #5a5a5a; line-height: 1.7; }
+
+/* ── FOR YOU ── */
+.foryou { background: #f8f7f4; padding: 72px 24px; }
+.foryou-inner { max-width: 760px; margin: 0 auto; }
+.foryou-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+.foryou-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #fff;
+  border: 1px solid #ebe7e0;
+  border-radius: 10px;
+  padding: 18px 20px;
+  font-size: 15px;
+  color: #2a2a2a;
+  line-height: 1.6;
+}
+.foryou-list li::before {
+  content: '✓';
+  background: #1a1a2e;
+  color: #f0c060;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 800;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── ABOUT ── */
+.about {
+  background: linear-gradient(150deg, #1a1a2e 0%, #0f3460 100%);
+  padding: 72px 24px;
+  color: #fff;
+}
+.about-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.about-photo {
+  width: 240px;
+  height: 280px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 3px solid rgba(240,192,96,0.4);
+  background: rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Playfair Display", serif;
+  font-size: 4rem;
+  color: #f0c060;
+}
+.about .section-label { color: #f0c060; text-align: left; }
+.about h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(24px, 3.5vw, 36px);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 16px;
+  text-align: left;
+}
+.about p { font-size: 15px; color: rgba(255,255,255,0.78); line-height: 1.8; margin-bottom: 14px; }
+.about p:last-child { margin-bottom: 0; }
+
+/* ── TESTIMONIALS ── */
+.testimonials { background: #fff; padding: 72px 24px; }
+.testimonials-inner { max-width: 900px; margin: 0 auto; }
+.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+.testimonial-card {
+  background: #f8f7f4;
+  border: 1px solid #ebe7e0;
+  border-radius: 12px;
+  padding: 28px 24px;
+}
+.stars { color: #f0c060; font-size: 16px; margin-bottom: 12px; letter-spacing: 2px; }
+.testimonial-card blockquote { font-size: 15px; color: #2a2a2a; line-height: 1.7; margin-bottom: 16px; font-style: italic; }
+.testimonial-author { font-size: 13px; font-weight: 700; color: #1a1a2e; }
+.testimonial-role { font-size: 12px; color: #8a8a8a; }
+
+/* ── REGISTRATION ── */
+.register {
+  background: linear-gradient(150deg, #1a1a2e 0%, #0f3460 100%);
+  padding: 80px 24px;
+  text-align: center;
+}
+.register-inner { max-width: 580px; margin: 0 auto; }
+.register .section-label { color: #f0c060; }
+.register h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(26px, 4vw, 42px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.25;
+  margin-bottom: 14px;
+}
+.register h2 em { font-style: italic; color: #f0c060; }
+.register p { font-size: 16px; color: rgba(255,255,255,0.72); line-height: 1.7; margin-bottom: 36px; }
+
+/* GHL form container */
+.ghl-form-wrap {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(240,192,96,0.25);
+  border-radius: 16px;
+  padding: 36px 32px;
+  margin-bottom: 20px;
+}
+.ghl-form-wrap p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 0;
+  font-style: italic;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: #111120;
+  padding: 32px 24px;
+  text-align: center;
+}
+.footer-logo {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #f0c060;
+  margin-bottom: 8px;
+  font-style: italic;
+}
+footer p { font-size: 12px; color: rgba(255,255,255,0.25); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  .hero { padding: 56px 18px 52px; }
+  .hero-meta { gap: 16px; }
+  .proof-bar-inner { gap: 24px; }
+  .about-inner { grid-template-columns: 1fr; text-align: center; }
+  .about-photo { margin: 0 auto; }
+  .about .section-label, .about h2 { text-align: center; }
+  .ghl-form-wrap { padding: 24px 18px; }
+  .learn { padding: 52px 18px; }
+  .foryou { padding: 52px 18px; }
+  .testimonials { padding: 52px 18px; }
+  .register { padding: 56px 18px; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">&#127775; Free Masterclass &nbsp;·&nbsp; Limited Spots Available &nbsp;·&nbsp; Register Below</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Free Online Masterclass</div>
+    <h1>Discover the <em>Secrets</em> to Building the Life &amp; Business You've Always Wanted</h1>
+    <p class="hero-sub">
+      Join thousands of ambitious women who have used Cora Academy's proven framework to unlock clarity, grow their income, and finally feel aligned with their purpose.
+    </p>
+    <div class="hero-meta">
+      <span class="hero-meta-item">
+        <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#f0c060" stroke-width="1.5"/><path d="M10 5v5l3 3" stroke="#f0c060" stroke-width="1.5" stroke-linecap="round"/></svg>
+        60-Minute Training
+      </span>
+      <span class="hero-meta-item">
+        <svg viewBox="0 0 20 20" fill="none"><rect x="3" y="4" width="14" height="13" rx="2" stroke="#f0c060" stroke-width="1.5"/><path d="M3 8h14M7 2v3M13 2v3" stroke="#f0c060" stroke-width="1.5" stroke-linecap="round"/></svg>
+        100% Free to Attend
+      </span>
+      <span class="hero-meta-item">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M10 2a6 6 0 100 12A6 6 0 0010 2zM10 18v-2" stroke="#f0c060" stroke-width="1.5" stroke-linecap="round"/></svg>
+        Live + Replay Available
+      </span>
+    </div>
+    <a href="#register" class="btn-primary">Reserve My Free Spot</a>
+    <span class="btn-sub">No credit card required &nbsp;·&nbsp; Instant confirmation</span>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF BAR -->
+<div class="proof-bar">
+  <div class="proof-bar-inner">
+    <div class="proof-item"><strong>10,000+</strong> Students Enrolled</div>
+    <div class="proof-item"><strong>4.9★</strong> Average Rating</div>
+    <div class="proof-item"><strong>93%</strong> Say It Changed Their Direction</div>
+    <div class="proof-item"><strong>Free</strong> — No Hidden Costs</div>
+  </div>
+</div>
+
+<!-- WHAT YOU'LL LEARN -->
+<section class="learn">
+  <div class="learn-inner">
+    <p class="section-label">What You'll Learn</p>
+    <h2 class="section-title">Everything you need to move from <em>stuck to unstoppable</em></h2>
+    <p class="section-intro">In this free masterclass, you'll walk away with a clear, actionable roadmap — not theory.</p>
+    <div class="learn-grid">
+      <div class="learn-card">
+        <p class="learn-num">Module 01</p>
+        <h3>Identify Your Unique Zone of Genius</h3>
+        <p>Uncover the gifts and strengths that make you magnetic to the right clients — and learn how to lead with them.</p>
+      </div>
+      <div class="learn-card">
+        <p class="learn-num">Module 02</p>
+        <h3>Build an Offer People Actually Want to Buy</h3>
+        <p>Design a signature offer that solves a real problem, commands premium pricing, and feels completely aligned.</p>
+      </div>
+      <div class="learn-card">
+        <p class="learn-num">Module 03</p>
+        <h3>Create Consistent, Predictable Revenue</h3>
+        <p>A simple system to attract, nurture, and convert clients — without ads, complicated funnels, or burnout.</p>
+      </div>
+      <div class="learn-card">
+        <p class="learn-num">Module 04</p>
+        <h3>Scale Without Sacrificing Your Life</h3>
+        <p>Build the structure that gives you freedom — time, income, and energy — while your business grows.</p>
+      </div>
+      <div class="learn-card">
+        <p class="learn-num">Module 05</p>
+        <h3>The Mindset Shifts That Change Everything</h3>
+        <p>Identify and dissolve the hidden beliefs keeping you from showing up fully and charging what you're worth.</p>
+      </div>
+      <div class="learn-card">
+        <p class="learn-num">Module 06</p>
+        <h3>Your 90-Day Action Plan</h3>
+        <p>Leave with a concrete, personalised roadmap so you know exactly what to do the moment the training ends.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR YOU? -->
+<section class="foryou">
+  <div class="foryou-inner">
+    <p class="section-label">Is This For You?</p>
+    <h2 class="section-title">This masterclass is <em>perfect for you</em> if…</h2>
+    <ul class="foryou-list">
+      <li>You're an entrepreneur, coach, or consultant who knows you're capable of more — but can't seem to break through</li>
+      <li>You're tired of trading time for money and want to build something that scales</li>
+      <li>You feel overwhelmed by the noise online and want a clear, simple strategy that actually works</li>
+      <li>You want to attract premium clients who are excited to invest — without chasing or convincing</li>
+      <li>You're ready to invest in yourself and do the work, and just need the right roadmap to follow</li>
+      <li>You want a business that funds the life you actually want — not one that consumes it</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="about-inner">
+    <div class="about-photo">C</div>
+    <div>
+      <p class="section-label">Your Instructor</p>
+      <h2>Meet Your Cora Academy Coach</h2>
+      <p>With over a decade of experience helping women build profitable, purpose-driven businesses, our lead instructor brings a rare combination of strategic clarity and deep compassion to everything she teaches.</p>
+      <p>She's built multiple six-figure businesses from scratch, coached thousands of women across 40+ countries, and developed the proprietary Cora Method — a step-by-step framework that removes the guesswork and gives you a clear path forward.</p>
+      <p>This masterclass distills her best, most transformative work into one focused training — completely free.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="testimonials-inner">
+    <p class="section-label">What Students Say</p>
+    <h2 class="section-title">Real results from real <em>women like you</em></h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"I watched the masterclass on a Tuesday and signed my first high-ticket client by Friday. The clarity I got in 60 minutes was worth more than years of trying to figure it out alone."</blockquote>
+        <p class="testimonial-author">Sarah M.</p>
+        <p class="testimonial-role">Business Coach, Ontario</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"I've watched dozens of free trainings and most are just teasers. This was different. I filled three pages of notes and walked away knowing exactly what to do next."</blockquote>
+        <p class="testimonial-author">Priya K.</p>
+        <p class="testimonial-role">Wellness Consultant, London</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"The mindset section alone changed everything for me. I stopped undercharging the very next day. I wish I'd found this two years ago — don't wait."</blockquote>
+        <p class="testimonial-author">Danielle R.</p>
+        <p class="testimonial-role">Brand Strategist, Austin TX</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGISTRATION -->
+<section class="register" id="register">
+  <div class="register-inner">
+    <p class="section-label">Save Your Seat</p>
+    <h2>Ready to change <em>everything?</em></h2>
+    <p>Enter your details below to reserve your free spot. You'll receive instant confirmation plus access to our private resource library.</p>
+
+    <!-- ↓↓ PASTE YOUR GHL FORM EMBED CODE HERE ↓↓ -->
+    <div class="ghl-form-wrap">
+      <!-- Replace this comment with your GHL form embed snippet -->
+      <!-- Example: <iframe src="https://api.leadconnectorhq.com/widget/form/YOURFORMID" ...></iframe> -->
+      <p>[ GHL opt-in form goes here ]</p>
+    </div>
+    <!-- ↑↑ END GHL FORM ↑↑ -->
+
+    <p style="font-size:12px;color:rgba(255,255,255,0.3);margin-top:16px;">Your information is safe. We never spam or share your details.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Cora Academy</div>
+  <p>&copy; 2025 Cora Academy. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
